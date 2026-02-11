@@ -14,7 +14,7 @@ if exist "C:\Users\flori\.cursor\projects\c-Users-flori-Documents-Projet-Cahier-
 )
 
 echo [1/4] Ajout des fichiers...
-git add index.html styles.css script.js README.md .gitignore copier-images.bat push-to-github.bat
+git add index.html styles.css script.js README.md .gitignore .nojekyll copier-images.bat push-to-github.bat
 git add assets\ 2>nul
 
 echo [2/4] Statut...
