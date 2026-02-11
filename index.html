@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cahier des Charges - StockPro | Gestion de Stock IT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="print-header" aria-hidden="true">StockPro - Cahier des Charges Fonctionnel et Technique</div>
 
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="nav-logo-icon">📦</span>
-        <span>StockPro</span>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo">
+        <span class="logo-icon">📦</span>
+        <span class="logo-text">StockPro</span>
       </a>
-      <ul class="nav-links">
+      <ul class="navbar-menu">
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#perimetre">Périmètre</a></li>
         <li><a href="#fonctionnel">Fonctionnel</a></li>
@@ -26,378 +27,357 @@
         <li><a href="#benefices">Bénéfices</a></li>
         <li><a href="#evolutions">Évolutions</a></li>
       </ul>
-      <button class="nav-print" onclick="window.print()" aria-label="Imprimer / Exporter PDF">↑ PDF</button>
+      <div class="navbar-actions">
+        <button class="btn-icon theme-toggle" aria-label="Changer de thème">🌙</button>
+        <button class="btn-export" onclick="openExportModal()">Export PDF</button>
+      </div>
     </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-bg">
-      <div class="hero-shape hero-shape-1"></div>
-      <div class="hero-shape hero-shape-2"></div>
-      <div class="hero-shape hero-shape-3"></div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="hero-gradient"></div>
+      <div class="hero-particles" id="particles"></div>
       <div class="hero-grid"></div>
     </div>
     <div class="hero-content">
-      <p class="hero-label">Cahier des Charges Fonctionnel et Technique</p>
+      <div class="hero-badge">Cahier des Charges V1.0</div>
       <h1 class="hero-title">StockPro</h1>
       <p class="hero-subtitle">Gestion de Stock IT</p>
-      <p class="hero-desc">Application mobile moderne, connectée et sécurisée pour la gestion du stock informatique</p>
-      <div class="hero-actions">
-        <a href="#introduction" class="btn btn-primary">Découvrir le projet</a>
-        <button onclick="window.print()" class="btn btn-outline">Exporter en PDF</button>
+      <p class="hero-description">Application mobile moderne, connectée et sécurisée pour la gestion du stock informatique</p>
+      <div class="hero-cta">
+        <a href="#introduction" class="btn-primary">Découvrir le projet</a>
+        <button class="btn-secondary" onclick="openExportModal()">Télécharger PDF</button>
       </div>
     </div>
-  </header>
+    <div class="scroll-indicator">
+      <span>Défiler</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
 
-  <main class="main">
-    <aside class="toc">
-      <h3>Sommaire</h3>
-      <ol>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#perimetre">Périmètre</a></li>
-        <li><a href="#fonctionnel">Description Fonctionnelle</a></li>
-        <li><a href="#technique">Architecture Technique</a></li>
-        <li><a href="#exigences">Exigences Non Fonctionnelles</a></li>
-        <li><a href="#securite">Sécurité</a></li>
-        <li><a href="#benefices">Bénéfices</a></li>
-        <li><a href="#evolutions">Évolutions</a></li>
-      </ol>
-    </aside>
-
-    <article class="content">
-      <!-- 1. Introduction -->
-      <section id="introduction" class="section">
-        <h2>1. Introduction</h2>
-        
-        <h3>1.1 Contexte</h3>
-        <p>La gestion du stock informatique est aujourd'hui réalisée de manière partiellement manuelle, ce qui génère :</p>
-        <ul>
-          <li>Des risques d'erreurs de saisie</li>
-          <li>Un manque de traçabilité des mouvements</li>
-          <li>Des écarts d'inventaire</li>
-          <li>Une perte de temps opérationnelle</li>
-          <li>Une visibilité limitée sur les niveaux de stock</li>
-        </ul>
-        <p>Dans un contexte d'optimisation des processus internes, l'entreprise souhaite mettre en place une solution mobile centralisée, moderne et sécurisée.</p>
-        <p class="highlight">L'application StockPro a pour objectif de digitaliser et sécuriser la gestion du stock IT.</p>
-
-        <h3>1.2 Objectifs du projet</h3>
-        <ul class="objectives">
-          <li><span class="icon">📦</span> Centraliser la gestion des articles IT</li>
-          <li><span class="icon">📋</span> Assurer la traçabilité complète des mouvements</li>
-          <li><span class="icon">🔔</span> Automatiser les alertes de stock faible</li>
-          <li><span class="icon">✓</span> Réduire les erreurs humaines</li>
-          <li><span class="icon">📱</span> Permettre un accès mobile en temps réel</li>
-          <li><span class="icon">📊</span> Faciliter l'export des données pour analyse</li>
-        </ul>
-      </section>
-
-      <!-- 2. Périmètre -->
-      <section id="perimetre" class="section">
-        <h2>2. Périmètre du projet</h2>
-        
-        <div class="cards">
-          <div class="card card-in">
-            <h4>Inclus dans le périmètre</h4>
-            <ul>
-              <li>Application mobile Android</li>
-              <li>Authentification multi-utilisateurs</li>
-              <li>Gestion multi-sites</li>
-              <li>Gestion des articles</li>
-              <li>Gestion des mouvements</li>
-              <li>Scan code-barres</li>
-              <li>Synchronisation cloud</li>
-              <li>Export CSV</li>
-            </ul>
-          </div>
-          <div class="card card-out">
-            <h4>Hors périmètre (phase actuelle)</h4>
-            <ul>
-              <li>Version Web</li>
-              <li>Gestion fournisseurs avancée</li>
-              <li>Module commande automatique</li>
-              <li>Interface BI avancée</li>
-            </ul>
+  <main class="main-content">
+    <!-- Section 1: Introduction -->
+    <section class="content-section" id="introduction">
+      <div class="section-badge">
+        <span class="badge-icon">🎯</span>
+        <span class="badge-text">Contexte</span>
+      </div>
+      <h2 class="section-title">
+        <span class="title-number">01</span>
+        <span class="title-text">Introduction</span>
+      </h2>
+      <div class="intro-grid">
+        <div class="intro-card context-card">
+          <div class="card-icon">🎯</div>
+          <h3>Contexte</h3>
+          <ul class="problem-list">
+            <li><span class="icon">⚠️</span> Risques d'erreurs de saisie</li>
+            <li><span class="icon">⚠️</span> Manque de traçabilité des mouvements</li>
+            <li><span class="icon">⚠️</span> Écarts d'inventaire</li>
+            <li><span class="icon">⚠️</span> Perte de temps opérationnelle</li>
+            <li><span class="icon">⚠️</span> Visibilité limitée sur les niveaux de stock</li>
+          </ul>
+          <p class="intro-highlight">L'application StockPro a pour objectif de digitaliser et sécuriser la gestion du stock IT.</p>
+        </div>
+        <div class="intro-card objectives-card">
+          <div class="card-icon">🚀</div>
+          <h3>Objectifs du projet</h3>
+          <div class="objectives-grid">
+            <div class="objective-item"><span class="objective-icon">📦</span><p>Centraliser la gestion des articles IT</p></div>
+            <div class="objective-item"><span class="objective-icon">📋</span><p>Assurer la traçabilité complète des mouvements</p></div>
+            <div class="objective-item"><span class="objective-icon">🔔</span><p>Automatiser les alertes de stock faible</p></div>
+            <div class="objective-item"><span class="objective-icon">✓</span><p>Réduire les erreurs humaines</p></div>
+            <div class="objective-item"><span class="objective-icon">📱</span><p>Accès mobile en temps réel</p></div>
+            <div class="objective-item"><span class="objective-icon">📊</span><p>Faciliter l'export des données</p></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 3. Description Fonctionnelle -->
-      <section id="fonctionnel" class="section section-features">
-        <h2>3. Description Fonctionnelle</h2>
-
-        <!-- 3.1 Authentification -->
-        <div class="feature-block">
-          <div class="feature-header">
-            <h3>3.1 Authentification et gestion des utilisateurs</h3>
-            <div class="feature-badge">Sécurité</div>
-          </div>
-          <div class="feature-content">
-            <div class="feature-text">
-              <p><strong>Fonctionnalités attendues :</strong></p>
-              <ul>
-                <li>Connexion sécurisée par identifiant / mot de passe</li>
-                <li>Sélection de profil utilisateur</li>
-                <li>Gestion du site actif</li>
-                <li>Maintien de session (« Se souvenir de moi »)</li>
-                <li>Indicateur d'état de connexion</li>
-              </ul>
-              <p><strong>Objectifs :</strong> Sécuriser l'accès aux données, assurer la traçabilité des opérations, isoler les données par site.</p>
-            </div>
-            <div class="feature-images">
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-292a031f-0f2b-4f27-8935-a7ba413922c6.png" alt="Écran de connexion StockPro">
-                <figcaption>Écran de connexion</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-07092974-0807-4a3c-a917-6f2e63b7d001.png" alt="Sélection de profil utilisateur">
-                <figcaption>Sélection de profil</figcaption>
-              </figure>
-            </div>
-          </div>
+    <!-- Section 2: Périmètre -->
+    <section class="content-section" id="perimetre">
+      <div class="section-badge"><span class="badge-icon">📋</span><span class="badge-text">Scope</span></div>
+      <h2 class="section-title"><span class="title-number">02</span><span class="title-text">Périmètre du projet</span></h2>
+      <div class="scope-container">
+        <div class="scope-card scope-in">
+          <div class="card-header"><span class="header-icon">✅</span><h3>Inclus dans le périmètre</h3></div>
+          <ul class="scope-list">
+            <li><span class="check-icon">✓</span> Application mobile Android</li>
+            <li><span class="check-icon">✓</span> Authentification multi-utilisateurs</li>
+            <li><span class="check-icon">✓</span> Gestion multi-sites</li>
+            <li><span class="check-icon">✓</span> Gestion des articles</li>
+            <li><span class="check-icon">✓</span> Gestion des mouvements</li>
+            <li><span class="check-icon">✓</span> Scan code-barres</li>
+            <li><span class="check-icon">✓</span> Synchronisation cloud</li>
+            <li><span class="check-icon">✓</span> Export CSV</li>
+          </ul>
         </div>
-
-        <!-- 3.2 Tableau de bord -->
-        <div class="feature-block">
-          <div class="feature-header">
-            <h3>3.2 Tableau de bord (Accueil)</h3>
-            <div class="feature-badge">Vue synthétique</div>
-          </div>
-          <div class="feature-content">
-            <div class="feature-text">
-              <p>Le tableau de bord offre une vue synthétique et opérationnelle :</p>
-              <ul>
-                <li><strong>Nombre total d'articles</strong></li>
-                <li><strong>Nombre d'alertes stock</strong></li>
-                <li><strong>Nombre de mouvements du jour</strong></li>
-                <li><strong>Bouton principal</strong> d'accès au scan</li>
-              </ul>
-              <p><strong>Finalité :</strong> Permettre une prise de décision rapide et une vision immédiate de la situation du stock.</p>
-            </div>
-            <div class="feature-images">
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-26e2a576-aad7-47b4-9edc-1da2b7ff6302.png" alt="Tableau de bord StockPro">
-                <figcaption>Tableau de bord</figcaption>
-              </figure>
-            </div>
-          </div>
+        <div class="scope-card scope-out">
+          <div class="card-header"><span class="header-icon">⏸️</span><h3>Hors périmètre (phase actuelle)</h3></div>
+          <ul class="scope-list">
+            <li><span class="cross-icon">○</span> Version Web</li>
+            <li><span class="cross-icon">○</span> Gestion fournisseurs avancée</li>
+            <li><span class="cross-icon">○</span> Module commande automatique</li>
+            <li><span class="cross-icon">○</span> Interface BI avancée</li>
+          </ul>
         </div>
+      </div>
+    </section>
 
-        <!-- 3.3 Gestion des articles -->
-        <div class="feature-block">
-          <div class="feature-header">
-            <h3>3.3 Gestion des articles</h3>
-            <div class="feature-badge">Catalogue</div>
-          </div>
-          <div class="feature-content">
-            <div class="feature-text">
-              <p><strong>3.3.1 Consultation</strong> — Liste, recherche par référence ou nom, filtres, tri A-Z, indicateur stock faible.</p>
-              <p><strong>3.3.2 Fiche article</strong> — Référence, famille, marque, type, emplacement, site, stock actuel/minimum, historique.</p>
-              <p><strong>3.3.3 Actions</strong> — Entrée, sortie, ajustement, transfert inter-site, modification, export.</p>
-            </div>
-            <div class="feature-images">
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-354755b8-4e27-418c-bc18-0e328df1a707.png" alt="Liste des articles">
-                <figcaption>Liste des articles</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-70bc7db2-e262-4984-9d72-956cbdaf9d0b.png" alt="Fiche article détaillée">
-                <figcaption>Fiche article</figcaption>
-              </figure>
-            </div>
-          </div>
+    <!-- Section 3: Description Fonctionnelle -->
+    <section class="content-section" id="fonctionnel">
+      <div class="section-badge"><span class="badge-icon">⚙️</span><span class="badge-text">Fonctionnalités</span></div>
+      <h2 class="section-title"><span class="title-number">03</span><span class="title-text">Description Fonctionnelle</span></h2>
+      <div class="features-container">
+        <div class="features-tabs">
+          <button class="tab-btn active" data-tab="auth"><span class="tab-icon">🔒</span><span class="tab-text">Auth</span></button>
+          <button class="tab-btn" data-tab="dashboard"><span class="tab-icon">📊</span><span class="tab-text">Dashboard</span></button>
+          <button class="tab-btn" data-tab="articles"><span class="tab-icon">📦</span><span class="tab-text">Articles</span></button>
+          <button class="tab-btn" data-tab="scan"><span class="tab-icon">📷</span><span class="tab-text">Scan</span></button>
+          <button class="tab-btn" data-tab="mouvements"><span class="tab-icon">↕️</span><span class="tab-text">Mouvements</span></button>
+          <button class="tab-btn" data-tab="autres"><span class="tab-icon">⚙️</span><span class="tab-text">Autres</span></button>
+          <div class="tab-indicator"></div>
         </div>
-
-        <!-- 3.4 Scan -->
-        <div class="feature-block">
-          <div class="feature-header">
-            <h3>3.4 Scan Code-Barres</h3>
-            <div class="feature-badge">Rapidité</div>
-          </div>
-          <div class="feature-content">
-            <div class="feature-text">
-              <p><strong>Fonctionnalités :</strong> Scan via caméra mobile, compatibilité scanner externe, accès automatique à la fiche article.</p>
-              <p><strong>Objectifs :</strong> Réduire les erreurs de saisie, accélérer les opérations, simplifier les inventaires.</p>
+        <div class="features-content">
+          <div class="feature-tab-content active" id="tab-auth">
+            <div class="feature-layout">
+              <div class="feature-text">
+                <span class="feature-badge">Sécurité</span>
+                <h3>Authentification et gestion des utilisateurs</h3>
+                <div class="feature-details">
+                  <h4>Fonctionnalités attendues :</h4>
+                  <ul>
+                    <li>Connexion sécurisée par identifiant / mot de passe</li>
+                    <li>Sélection de profil utilisateur</li>
+                    <li>Gestion du site actif</li>
+                    <li>Maintien de session (« Se souvenir de moi »)</li>
+                    <li>Indicateur d'état de connexion</li>
+                  </ul>
+                </div>
+                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Sécuriser l'accès aux données, assurer la traçabilité, isoler les données par site.</p></div>
+              </div>
+              <div class="feature-mockups">
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-292a031f-0f2b-4f27-8935-a7ba413922c6.png" alt="Connexion"><p class="mockup-caption">Écran de connexion</p></div>
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-07092974-0807-4a3c-a917-6f2e63b7d001.png" alt="Profil"><p class="mockup-caption">Sélection de profil</p></div>
+              </div>
             </div>
-            <div class="feature-images">
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-06de4e9a-17dd-4f42-a06f-ac440c11af5c.png" alt="Écran de scan code-barres">
-                <figcaption>Scanner</figcaption>
-              </figure>
+          </div>
+          <div class="feature-tab-content" id="tab-dashboard">
+            <div class="feature-layout">
+              <div class="feature-text">
+                <span class="feature-badge">Vue synthétique</span>
+                <h3>Tableau de bord (Accueil)</h3>
+                <ul>
+                  <li>Nombre total d'articles</li>
+                  <li>Nombre d'alertes stock</li>
+                  <li>Nombre de mouvements du jour</li>
+                  <li>Bouton principal d'accès au scan</li>
+                </ul>
+                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Permettre une prise de décision rapide et une vision immédiate du stock.</p></div>
+              </div>
+              <div class="feature-mockups">
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-26e2a576-aad7-47b4-9edc-1da2b7ff6302.png" alt="Dashboard"><p class="mockup-caption">Tableau de bord</p></div>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- 3.5 Mouvements -->
-        <div class="feature-block">
-          <div class="feature-header">
-            <h3>3.5 Gestion des mouvements</h3>
-            <div class="feature-badge">Traçabilité</div>
-          </div>
-          <div class="feature-content">
-            <div class="feature-text">
-              <p><strong>Types :</strong> Entrée (+), Sortie (-), Ajustement, Transfert.</p>
-              <p><strong>Informations :</strong> Article, quantité, date/heure, utilisateur, type d'opération.</p>
-              <p><strong>Interface :</strong> Filtre par type, timeline, statistiques journalières.</p>
+          <div class="feature-tab-content" id="tab-articles">
+            <div class="feature-layout">
+              <div class="feature-text">
+                <span class="feature-badge">Catalogue</span>
+                <h3>Gestion des articles</h3>
+                <p><strong>Consultation :</strong> Liste, recherche, filtres, tri A-Z, indicateur stock faible.</p>
+                <p><strong>Fiche article :</strong> Référence, famille, marque, type, emplacement, stock actuel/minimum, historique.</p>
+                <p><strong>Actions :</strong> Entrée, sortie, ajustement, transfert inter-site, modification, export.</p>
+              </div>
+              <div class="feature-mockups">
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-354755b8-4e27-418c-bc18-0e328df1a707.png" alt="Articles"><p class="mockup-caption">Liste des articles</p></div>
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-70bc7db2-e262-4984-9d72-956cbdaf9d0b.png" alt="Fiche article"><p class="mockup-caption">Fiche article</p></div>
+              </div>
             </div>
-            <div class="feature-images">
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-0c89b1ce-cccc-4696-a63e-82160cae376e.png" alt="Gestion des mouvements">
-                <figcaption>Mouvements</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-f7d1ddef-2bc2-49c1-937b-bc21525b5067.png" alt="Historique et export">
-                <figcaption>Historique & Export</figcaption>
-              </figure>
+          </div>
+          <div class="feature-tab-content" id="tab-scan">
+            <div class="feature-layout">
+              <div class="feature-text">
+                <span class="feature-badge">Rapidité</span>
+                <h3>Scan Code-Barres</h3>
+                <p>Scan via caméra mobile, compatibilité scanner externe, accès automatique à la fiche article.</p>
+                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Réduire les erreurs de saisie, accélérer les opérations, simplifier les inventaires.</p></div>
+              </div>
+              <div class="feature-mockups">
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-06de4e9a-17dd-4f42-a06f-ac440c11af5c.png" alt="Scanner"><p class="mockup-caption">Scanner</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="feature-tab-content" id="tab-mouvements">
+            <div class="feature-layout">
+              <div class="feature-text">
+                <span class="feature-badge">Traçabilité</span>
+                <h3>Gestion des mouvements</h3>
+                <p><strong>Types :</strong> Entrée (+), Sortie (-), Ajustement, Transfert.</p>
+                <p><strong>Informations :</strong> Article, quantité, date/heure, utilisateur, type d'opération.</p>
+                <p><strong>Interface :</strong> Filtre par type, timeline, statistiques journalières.</p>
+              </div>
+              <div class="feature-mockups">
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-0c89b1ce-cccc-4696-a63e-82160cae376e.png" alt="Mouvements"><p class="mockup-caption">Mouvements</p></div>
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-f7d1ddef-2bc2-49c1-937b-bc21525b5067.png" alt="Historique"><p class="mockup-caption">Historique & Export</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="feature-tab-content" id="tab-autres">
+            <div class="feature-layout">
+              <div class="feature-text">
+                <h3>Alertes, Sync & Export</h3>
+                <p><strong>3.6 Alertes stock :</strong> Détection automatique si stock ≤ stock minimum. Objectif : anticiper les ruptures.</p>
+                <p><strong>3.7 Synchronisation :</strong> Supabase, indicateur d'état, sync manuelle, données en attente.</p>
+                <p><strong>3.8 Export :</strong> CSV (fiche + historique), exploitation Excel.</p>
+              </div>
+              <div class="feature-mockups">
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-3510ff32-b203-4a37-bb0b-c05c9c78cb5f.png" alt="Réglages"><p class="mockup-caption">Réglages & Site actif</p></div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- 3.6 à 3.8 -->
-        <div class="feature-block feature-compact">
-          <h3>3.6 Alertes de stock</h3>
-          <p>Détection automatique si stock ≤ stock minimum. Affichage visuel dans la liste et sur le tableau de bord. Objectif : anticiper les ruptures.</p>
-        </div>
-        <div class="feature-block feature-compact">
-          <h3>3.7 Synchronisation et Cloud</h3>
-          <p>Synchronisation avec Supabase, indicateur d'état, synchronisation manuelle, gestion des données en attente.</p>
-        </div>
-        <div class="feature-block feature-compact">
-          <h3>3.8 Export des données</h3>
-          <p>Export CSV (fiche article + historique), fichier enregistré localement. Objectif : exploitation Excel / reporting interne.</p>
-        </div>
-
-        <!-- Réglages -->
-        <div class="feature-block">
-          <div class="feature-header">
-            <h3>Réglages et synchronisation</h3>
-          </div>
-          <div class="feature-content">
-            <div class="feature-images">
-              <figure>
-                <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-3510ff32-b203-4a37-bb0b-c05c9c78cb5f.png" alt="Écran Réglages StockPro">
-                <figcaption>Réglages & Site actif</figcaption>
-              </figure>
-            </div>
+    <!-- Section 4: Architecture Technique -->
+    <section class="content-section" id="technique">
+      <div class="section-badge"><span class="badge-icon">🔧</span><span class="badge-text">Stack</span></div>
+      <h2 class="section-title"><span class="title-number">04</span><span class="title-text">Architecture Technique</span></h2>
+      <div class="architecture-diagram">
+        <div class="arch-layer frontend-layer">
+          <div class="layer-header"><span class="layer-icon">📱</span><h4>Frontend</h4></div>
+          <div class="layer-items">
+            <div class="tech-bubble">Application Android</div>
+            <div class="tech-bubble">Android 13</div>
+            <div class="tech-bubble">Smartphones durcis</div>
           </div>
         </div>
-      </section>
-
-      <!-- 4. Architecture Technique -->
-      <section id="technique" class="section">
-        <h2>4. Architecture technique</h2>
-        
-        <div class="tech-grid">
-          <div class="tech-card">
-            <h4>4.1 Environnement</h4>
-            <ul>
-              <li>Application Android</li>
-              <li>Compatible Android 13</li>
-              <li>Testée sur émulateur API 36</li>
-              <li>Compatible smartphones durcis</li>
-            </ul>
-          </div>
-          <div class="tech-card">
-            <h4>4.2 Backend</h4>
-            <ul>
-              <li>Base de données : Supabase</li>
-              <li>Hébergement cloud sécurisé</li>
-              <li>Authentification centralisée</li>
-            </ul>
-          </div>
-          <div class="tech-card tech-card-wide">
-            <h4>4.3 Modèle de données</h4>
-            <p>Tables principales : <code>Users</code>, <code>Sites</code>, <code>Articles</code>, <code>Movements</code>, <code>Categories</code>, <code>Locations</code></p>
+        <div class="arch-connector"></div>
+        <div class="arch-layer backend-layer">
+          <div class="layer-header"><span class="layer-icon">☁️</span><h4>Backend</h4></div>
+          <div class="layer-items">
+            <div class="tech-bubble">Supabase</div>
+            <div class="tech-bubble">PostgreSQL</div>
           </div>
         </div>
-      </section>
-
-      <!-- 5. Exigences -->
-      <section id="exigences" class="section">
-        <h2>5. Exigences non fonctionnelles</h2>
-        <ul class="requirements">
-          <li>Interface intuitive et ergonomique</li>
-          <li>Temps de réponse inférieur à 2 secondes</li>
-          <li>Fiabilité des données</li>
-          <li>Sécurité d'accès</li>
-          <li>Traçabilité complète</li>
-          <li>Stabilité en environnement mobile</li>
-        </ul>
-      </section>
-
-      <!-- 6. Sécurité -->
-      <section id="securite" class="section">
-        <h2>6. Sécurité</h2>
-        <ul class="security-list">
-          <li>Authentification obligatoire</li>
-          <li>Isolation des données par site</li>
-          <li>Traçabilité des utilisateurs</li>
-          <li>Journalisation des opérations</li>
-          <li>Données hébergées en cloud sécurisé</li>
-        </ul>
-      </section>
-
-      <!-- 7. Bénéfices -->
-      <section id="benefices" class="section">
-        <h2>7. Bénéfices attendus</h2>
-        <div class="benefits-grid">
-          <div class="benefit-card">
-            <h4>Opérationnels</h4>
-            <ul>
-              <li>Réduction des erreurs de saisie</li>
-              <li>Gain de temps sur les mouvements</li>
-              <li>Simplification des inventaires</li>
-            </ul>
-          </div>
-          <div class="benefit-card">
-            <h4>Organisationnels</h4>
-            <ul>
-              <li>Meilleure visibilité du stock</li>
-              <li>Anticipation des ruptures</li>
-              <li>Centralisation multi-sites</li>
-            </ul>
-          </div>
-          <div class="benefit-card">
-            <h4>Financiers</h4>
-            <ul>
-              <li>Réduction des pertes matérielles</li>
-              <li>Optimisation des achats</li>
-              <li>Diminution des écarts d'inventaire</li>
-            </ul>
+        <div class="arch-connector"></div>
+        <div class="arch-layer data-layer">
+          <div class="layer-header"><span class="layer-icon">🗄️</span><h4>Modèle de données</h4></div>
+          <div class="layer-items">
+            <code>Users</code> <code>Sites</code> <code>Articles</code> <code>Movements</code> <code>Categories</code> <code>Locations</code>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 8. Évolutions -->
-      <section id="evolutions" class="section">
-        <h2>8. Évolutions futures</h2>
-        <ul class="evolutions-list">
-          <li>Version Web</li>
-          <li>Module fournisseurs</li>
-          <li>Commandes automatiques</li>
-          <li>Dashboard analytique avancé</li>
-          <li>Gestion des rôles (admin, technicien)</li>
-          <li>Notifications push</li>
-        </ul>
-      </section>
+    <!-- Section 5: Exigences & Sécurité -->
+    <section class="content-section" id="exigences">
+      <div class="section-badge"><span class="badge-icon">⚡</span><span class="badge-text">Performance</span></div>
+      <h2 class="section-title"><span class="title-number">05</span><span class="title-text">Exigences & Sécurité</span></h2>
+      <div class="info-cards-grid">
+        <div class="info-card"><div class="card-icon-wrapper"><span class="card-icon">⚡</span></div><h4>Performance</h4><p>Temps de réponse &lt; 2 secondes</p></div>
+        <div class="info-card"><div class="card-icon-wrapper"><span class="card-icon">🎨</span></div><h4>Interface</h4><p>Intuitive et ergonomique</p></div>
+        <div class="info-card"><div class="card-icon-wrapper"><span class="card-icon">🔒</span></div><h4>Sécurité</h4><p>Authentification obligatoire</p></div>
+        <div class="info-card"><div class="card-icon-wrapper"><span class="card-icon">📋</span></div><h4>Traçabilité</h4><p>Journalisation complète</p></div>
+      </div>
+    </section>
 
-      <!-- Conclusion -->
-      <section class="section conclusion">
-        <h2>9. Conclusion</h2>
-        <blockquote>
-          StockPro constitue une solution mobile professionnelle, moderne et sécurisée, permettant une gestion optimisée du stock informatique. Elle répond aux enjeux de traçabilité, de performance opérationnelle et de sécurisation des données.
-        </blockquote>
-      </section>
-    </article>
+    <!-- Section 6: Bénéfices -->
+    <section class="content-section" id="benefices">
+      <div class="section-badge"><span class="badge-icon">📈</span><span class="badge-text">ROI</span></div>
+      <h2 class="section-title"><span class="title-number">06</span><span class="title-text">Bénéfices attendus</span></h2>
+      <div class="benefits-showcase">
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-icon">📉</div><div class="stat-number" data-target="75">0</div><div class="stat-unit">%</div><p class="stat-label">Réduction des erreurs</p></div>
+          <div class="stat-card"><div class="stat-icon">⚡</div><div class="stat-number" data-target="50">0</div><div class="stat-unit">%</div><p class="stat-label">Gain de temps</p></div>
+          <div class="stat-card"><div class="stat-icon">✓</div><div class="stat-number" data-target="100">0</div><div class="stat-unit">%</div><p class="stat-label">Traçabilité</p></div>
+        </div>
+        <div class="benefits-accordion">
+          <div class="accordion-item open"><div class="accordion-header"><span class="header-icon">⚙️</span><h4>Opérationnels</h4><span class="toggle-icon">▼</span></div><div class="accordion-content"><ul><li>Réduction des erreurs de saisie</li><li>Gain de temps sur les mouvements</li><li>Simplification des inventaires</li></ul></div></div>
+          <div class="accordion-item"><div class="accordion-header"><span class="header-icon">🏢</span><h4>Organisationnels</h4><span class="toggle-icon">▼</span></div><div class="accordion-content"><ul><li>Meilleure visibilité du stock</li><li>Anticipation des ruptures</li><li>Centralisation multi-sites</li></ul></div></div>
+          <div class="accordion-item"><div class="accordion-header"><span class="header-icon">💰</span><h4>Financiers</h4><span class="toggle-icon">▼</span></div><div class="accordion-content"><ul><li>Réduction des pertes matérielles</li><li>Optimisation des achats</li><li>Diminution des écarts d'inventaire</li></ul></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Évolutions -->
+    <section class="content-section" id="evolutions">
+      <div class="section-badge"><span class="badge-icon">🚀</span><span class="badge-text">Roadmap</span></div>
+      <h2 class="section-title"><span class="title-number">07</span><span class="title-text">Évolutions futures</span></h2>
+      <div class="roadmap-timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-item left"><div class="timeline-content"><span class="timeline-phase">Phase 2</span><h4>Version Web</h4><p>Interface de gestion desktop complète</p></div><div class="timeline-dot"><span class="dot-icon">🌐</span></div></div>
+        <div class="timeline-item right"><div class="timeline-dot"><span class="dot-icon">📦</span></div><div class="timeline-content"><span class="timeline-phase">Phase 3</span><h4>Module Fournisseurs</h4><p>Gestion avancée des commandes</p></div></div>
+        <div class="timeline-item left"><div class="timeline-content"><span class="timeline-phase">Phase 4</span><h4>Dashboard analytique</h4><p>BI et reporting avancé</p></div><div class="timeline-dot"><span class="dot-icon">📊</span></div></div>
+        <div class="timeline-item right"><div class="timeline-dot"><span class="dot-icon">🔔</span></div><div class="timeline-content"><span class="timeline-phase">Phase 5</span><h4>Notifications push</h4><p>Alertes en temps réel</p></div></div>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="content-section conclusion">
+      <div class="section-badge"><span class="badge-icon">✓</span><span class="badge-text">Conclusion</span></div>
+      <h2 class="section-title"><span class="title-number">08</span><span class="title-text">Conclusion</span></h2>
+      <blockquote class="conclusion-quote">StockPro constitue une solution mobile professionnelle, moderne et sécurisée, permettant une gestion optimisée du stock informatique. Elle répond aux enjeux de traçabilité, de performance opérationnelle et de sécurisation des données.</blockquote>
+    </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <p><strong>StockPro</strong> — Gestion de Stock IT</p>
-      <p>Cahier des Charges Fonctionnel et Technique • Version 1.0</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-icon">📦</span><span class="logo-text">StockPro</span></div>
+        <p class="footer-tagline">Solution professionnelle de gestion de stock IT</p>
+      </div>
+      <div class="footer-links">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#fonctionnel">Fonctionnel</a></li>
+          <li><a href="#technique">Technique</a></li>
+          <li><a href="#benefices">Bénéfices</a></li>
+        </ul>
+      </div>
+      <div class="footer-actions">
+        <h5>Document</h5>
+        <button class="btn-footer-primary" onclick="openExportModal()"><span>📄</span> Télécharger le CDC</button>
+        <p class="footer-version">Version 1.0 • Février 2025</p>
+      </div>
     </div>
+    <div class="footer-bottom">
+      <p>© 2025 StockPro. Cahier des charges technique.</p>
+    </div>
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Retour en haut"><span>↑</span></button>
   </footer>
 
+  <!-- Export Modal -->
+  <div class="export-modal" id="exportModal">
+    <div class="modal-backdrop" onclick="closeExportModal()"></div>
+    <div class="modal-content">
+      <h3>Exporter le cahier des charges</h3>
+      <div class="export-options">
+        <label class="option-card"><input type="checkbox" checked><span>Inclure les screenshots</span></label>
+        <label class="option-card"><input type="checkbox" checked><span>Inclure le diagramme technique</span></label>
+      </div>
+      <div class="export-actions">
+        <button class="btn-secondary" onclick="closeExportModal()">Annuler</button>
+        <button class="btn-primary" onclick="window.print(); closeExportModal();"><span>📄</span> Générer PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+    <div class="lightbox-content"><img src="" alt=""></div>
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer">×</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
