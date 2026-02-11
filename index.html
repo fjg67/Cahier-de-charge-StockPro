@@ -28,8 +28,8 @@
         <li><a href="#evolutions">Évolutions</a></li>
       </ul>
       <div class="navbar-actions">
-        <button class="btn-icon theme-toggle" aria-label="Changer de thème">🌙</button>
-        <button class="btn-export" onclick="openExportModal()">Export PDF</button>
+        <button type="button" class="btn-icon theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
+        <button type="button" class="btn-export" id="exportPdfBtn">Export PDF</button>
       </div>
     </div>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -49,7 +49,7 @@
       <p class="hero-description">Application mobile moderne, connectée et sécurisée pour la gestion du stock informatique</p>
       <div class="hero-cta">
         <a href="#introduction" class="btn-primary">Découvrir le projet</a>
-        <button class="btn-secondary" onclick="openExportModal()">Télécharger PDF</button>
+        <button type="button" class="btn-secondary" id="heroExportBtn">Télécharger PDF</button>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -170,16 +170,29 @@
               <div class="feature-text">
                 <span class="feature-badge">Vue synthétique</span>
                 <h3>Tableau de bord (Accueil)</h3>
-                <ul>
-                  <li>Nombre total d'articles</li>
-                  <li>Nombre d'alertes stock</li>
-                  <li>Nombre de mouvements du jour</li>
-                  <li>Bouton principal d'accès au scan</li>
-                </ul>
-                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Permettre une prise de décision rapide et une vision immédiate du stock.</p></div>
+                <p>Le tableau de bord offre une vue synthétique et opérationnelle du stock en temps réel.</p>
+                <div class="feature-details">
+                  <h4>Indicateurs affichés :</h4>
+                  <ul>
+                    <li>Nombre total d'articles en stock</li>
+                    <li>Nombre d'alertes stock (stock faible)</li>
+                    <li>Nombre de mouvements du jour</li>
+                    <li>Bouton principal d'accès au scan</li>
+                  </ul>
+                </div>
+                <div class="feature-details">
+                  <h4>Actions rapides :</h4>
+                  <ul>
+                    <li>Entrée rapide (+)</li>
+                    <li>Sortie rapide (−)</li>
+                    <li>Liste des articles</li>
+                    <li>Réglages</li>
+                  </ul>
+                </div>
+                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Permettre une prise de décision rapide et une vision immédiate de la situation du stock.</p></div>
               </div>
               <div class="feature-mockups">
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-26e2a576-aad7-47b4-9edc-1da2b7ff6302.png" alt="Dashboard"><p class="mockup-caption">Tableau de bord</p></div>
+                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-26e2a576-aad7-47b4-9edc-1da2b7ff6302.png" alt="Tableau de bord StockPro"><p class="mockup-caption">Tableau de bord</p></div>
               </div>
             </div>
           </div>
@@ -308,12 +321,49 @@
     <section class="content-section" id="evolutions">
       <div class="section-badge"><span class="badge-icon">🚀</span><span class="badge-text">Roadmap</span></div>
       <h2 class="section-title"><span class="title-number">07</span><span class="title-text">Évolutions futures</span></h2>
-      <div class="roadmap-timeline">
-        <div class="timeline-line"></div>
-        <div class="timeline-item left"><div class="timeline-content"><span class="timeline-phase">Phase 2</span><h4>Version Web</h4><p>Interface de gestion desktop complète</p></div><div class="timeline-dot"><span class="dot-icon">🌐</span></div></div>
-        <div class="timeline-item right"><div class="timeline-dot"><span class="dot-icon">📦</span></div><div class="timeline-content"><span class="timeline-phase">Phase 3</span><h4>Module Fournisseurs</h4><p>Gestion avancée des commandes</p></div></div>
-        <div class="timeline-item left"><div class="timeline-content"><span class="timeline-phase">Phase 4</span><h4>Dashboard analytique</h4><p>BI et reporting avancé</p></div><div class="timeline-dot"><span class="dot-icon">📊</span></div></div>
-        <div class="timeline-item right"><div class="timeline-dot"><span class="dot-icon">🔔</span></div><div class="timeline-content"><span class="timeline-phase">Phase 5</span><h4>Notifications push</h4><p>Alertes en temps réel</p></div></div>
+      <p class="roadmap-intro">📅 Planning prévisionnel des évolutions de l'application StockPro</p>
+      <div class="roadmap-grid">
+        <div class="roadmap-card phase-current">
+          <div class="roadmap-card-header">
+            <span class="phase-badge">📱 Phase 1</span>
+            <span class="phase-status">✨ En cours</span>
+          </div>
+          <h4>Application mobile MVP</h4>
+          <p>Application Android complète : gestion articles, scan, mouvements, synchronisation Supabase</p>
+          <ul class="roadmap-features">
+            <li>🔐 Authentification multi-utilisateurs</li>
+            <li>📷 Scan code-barres</li>
+            <li>📄 Export CSV</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-card-header">
+            <span class="phase-badge">🌐 Phase 2</span>
+          </div>
+          <h4>Version Web</h4>
+          <p>Interface de gestion desktop complète</p>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-card-header">
+            <span class="phase-badge">📦 Phase 3</span>
+          </div>
+          <h4>Module Fournisseurs</h4>
+          <p>Gestion avancée des commandes</p>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-card-header">
+            <span class="phase-badge">📊 Phase 4</span>
+          </div>
+          <h4>Dashboard analytique</h4>
+          <p>BI et reporting avancé</p>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-card-header">
+            <span class="phase-badge">🔔 Phase 5</span>
+          </div>
+          <h4>Notifications push</h4>
+          <p>Alertes en temps réel</p>
+        </div>
       </div>
     </section>
 
@@ -343,7 +393,7 @@
       </div>
       <div class="footer-actions">
         <h5>Document</h5>
-        <button class="btn-footer-primary" onclick="openExportModal()"><span>📄</span> Télécharger le CDC</button>
+        <button type="button" class="btn-footer-primary" id="footerExportBtn"><span>📄</span> Télécharger le CDC</button>
         <p class="footer-version">Version 1.0 • Février 2025</p>
       </div>
     </div>
@@ -355,7 +405,7 @@
 
   <!-- Export Modal -->
   <div class="export-modal" id="exportModal">
-    <div class="modal-backdrop" onclick="closeExportModal()"></div>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-content">
       <h3>Exporter le cahier des charges</h3>
       <div class="export-options">
@@ -363,8 +413,8 @@
         <label class="option-card"><input type="checkbox" checked><span>Inclure le diagramme technique</span></label>
       </div>
       <div class="export-actions">
-        <button class="btn-secondary" onclick="closeExportModal()">Annuler</button>
-        <button class="btn-primary" onclick="window.print(); closeExportModal();"><span>📄</span> Générer PDF</button>
+        <button type="button" class="btn-secondary" id="modalCancelBtn">Annuler</button>
+        <button type="button" class="btn-primary" id="modalPrintBtn"><span>📄</span> Générer PDF</button>
       </div>
     </div>
   </div>

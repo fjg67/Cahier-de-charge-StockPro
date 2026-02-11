@@ -6,6 +6,8 @@
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  // Boutons d'export et modal
+  initExportButtons();
   // Fonctions qui fonctionnent sans GSAP
   initAccordion();
   initLightbox();
@@ -159,20 +161,26 @@ function initTabs() {
     indicator.style.width = rect.width + 'px';
   };
 
-  tabs.forEach((tab, i) => {
+  tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       contents.forEach(c => c.classList.remove('active'));
       tab.classList.add('active');
-      document.getElementById('tab-' + tab.dataset.tab)?.classList.add('active');
+      const contentId = 'tab-' + tab.dataset.tab;
+      const contentEl = document.getElementById(contentId);
+      if (contentEl) contentEl.classList.add('active');
       updateIndicator(tab);
 
-      gsap.from('#tab-' + tab.dataset.tab + ' .feature-layout', {
-        opacity: 0,
-        x: 20,
-        duration: 0.4,
-        ease: 'power2.out'
-      });
+      if (typeof gsap !== 'undefined') {
+        try {
+          gsap.from(contentEl?.querySelector('.feature-layout'), {
+            opacity: 0.5,
+            x: 15,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        } catch (_) {}
+      }
     });
   });
 
@@ -267,38 +275,64 @@ function initScrollToTop() {
   });
 }
 
+// ========== EXPORT MODAL & BOUTONS ==========
+function initExportButtons() {
+  const modal = document.getElementById('exportModal');
+  const exportBtns = ['exportPdfBtn', 'heroExportBtn', 'footerExportBtn'];
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const modalCancelBtn = document.getElementById('modalCancelBtn');
+  const modalPrintBtn = document.getElementById('modalPrintBtn');
+
+  function openModal() {
+    if (modal) modal.classList.add('open');
+  }
+
+  function closeModal() {
+    if (modal) modal.classList.remove('open');
+  }
+
+  exportBtns.forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', openModal);
+  });
+
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+  if (modalCancelBtn) modalCancelBtn.addEventListener('click', closeModal);
+  if (modalPrintBtn) {
+    modalPrintBtn.addEventListener('click', () => {
+      window.print();
+      closeModal();
+    });
+  }
+}
+
 // ========== THEME TOGGLE ==========
 function initThemeToggle() {
-  const toggle = document.querySelector('.theme-toggle');
+  const toggle = document.getElementById('themeToggle') || document.querySelector('.theme-toggle');
   if (!toggle) return;
 
   const saved = localStorage.getItem('stockpro-theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+  function updateIcon() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    toggle.textContent = theme === 'dark' ? '🌙' : '☀️';
+  }
 
   toggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('stockpro-theme', next);
-    toggle.textContent = next === 'dark' ? '🌙' : '☀️';
+    updateIcon();
   });
 
-  const theme = document.documentElement.getAttribute('data-theme');
-  toggle.textContent = theme === 'dark' ? '🌙' : '☀️';
-}
-
-// ========== EXPORT MODAL ==========
-function openExportModal() {
-  document.getElementById('exportModal')?.classList.add('open');
-}
-
-function closeExportModal() {
-  document.getElementById('exportModal')?.classList.remove('open');
+  updateIcon();
 }
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    closeExportModal();
+    document.getElementById('exportModal')?.classList.remove('open');
     closeLightbox();
   }
 });
