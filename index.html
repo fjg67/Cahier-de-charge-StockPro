@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 </head>
 <body>
@@ -45,14 +45,59 @@
       <div class="hero-particles" id="particles"></div>
       <div class="hero-grid"></div>
     </div>
-    <div class="hero-content">
-      <div class="hero-badge">Cahier des Charges V1.0</div>
-      <h1 class="hero-title">StockPro</h1>
-      <p class="hero-subtitle">Gestion de Stock IT</p>
-      <p class="hero-description">Application mobile moderne, connectée et sécurisée pour la gestion du stock informatique</p>
-      <div class="hero-cta">
-        <a href="#introduction" class="btn-primary">Découvrir le projet</a>
-        <button type="button" class="btn-secondary" id="heroExportBtn">Télécharger PDF</button>
+    <div class="hero-split">
+      <!-- Côté texte -->
+      <div class="hero-text-side">
+        <div class="hero-badge">📘 Cahier des Charges V1.0</div>
+        <h1 class="hero-title">StockPro</h1>
+        <p class="hero-subtitle">Gestion de Stock IT</p>
+        <p class="hero-description">Application mobile moderne, connectée et sécurisée pour la gestion du stock informatique</p>
+        <div class="hero-stats-row">
+          <div class="hero-stat"><span class="hero-stat-num">6</span><span class="hero-stat-label">Modules</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-label">Plateformes</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="hero-stat-num">&lt;2s</span><span class="hero-stat-label">Réponse</span></div>
+        </div>
+        <div class="hero-cta">
+          <a href="#introduction" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            Découvrir le projet
+          </a>
+          <button type="button" class="btn-secondary" id="heroExportBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Télécharger PDF
+          </button>
+        </div>
+      </div>
+      <!-- Côté mockup téléphone -->
+      <div class="hero-phone-side">
+        <div class="phone-glow"></div>
+        <div class="phone-mockup">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-26e2a576-aad7-47b4-9edc-1da2b7ff6302.png" alt="StockPro Dashboard" class="phone-screenshot">
+            </div>
+          </div>
+        </div>
+        <!-- Badges flottants -->
+        <div class="floating-badge fb-scan">
+          <span class="fb-icon">📷</span>
+          <span class="fb-text">Scan code-barres</span>
+        </div>
+        <div class="floating-badge fb-sync">
+          <span class="fb-icon">🔄</span>
+          <span class="fb-text">Sync temps réel</span>
+        </div>
+        <div class="floating-badge fb-stock">
+          <span class="fb-icon">📦</span>
+          <span class="fb-text">Gestion de stock</span>
+        </div>
+        <div class="floating-badge fb-alert">
+          <span class="fb-icon">🔔</span>
+          <span class="fb-text">Alertes auto</span>
+        </div>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -298,7 +343,7 @@
           </div>
           <div class="card-price">
             <span class="price-label">À partir de</span>
-            <span class="price-value">49€/mois</span>
+            <span class="price-value">185€/mois (2 220€/an)</span>
           </div>
           <a href="https://timly.com" target="_blank" rel="noopener" class="card-link">Voir le site →</a>
         </div>
@@ -460,7 +505,7 @@
             <tr data-category="technical">
               <td class="feature-name"><span>Modèle tarifaire</span><button type="button" class="info-btn" aria-label="Info" title="Prix">ℹ️</button></td>
               <td class="feature-value"><span class="value-label">Sur mesure / Licence</span></td>
-              <td class="feature-value"><span class="value-label">À partir de 49€/mois</span></td>
+              <td class="feature-value"><span class="value-label">À partir de 185€/mois</span></td>
               <td class="feature-value"><span class="value-label">Gratuit + Premium</span></td>
             </tr>
           </tbody>
@@ -494,7 +539,7 @@
           <div class="analysis-card weaknesses-card">
             <h4 class="card-header"><span class="header-icon">⚠️</span> Limites de Timly</h4>
             <ul class="analysis-list">
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Coût récurrent élevé</strong><p>À partir de 49€/mois, augmente selon fonctionnalités</p></div></li>
+              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Coût récurrent élevé</strong><p>À partir de 185€/mois (2 220€/an), augmente selon fonctionnalités</p></div></li>
               <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Non spécialisé IT</strong><p>Solution générique multi-secteurs, pas d'optimisation IT</p></div></li>
               <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Complexité excessive</strong><p>Courbe d'apprentissage importante, trop de fonctions</p></div></li>
               <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Personnalisation limitée</strong><p>Modèle SaaS rigide, peu adaptable aux besoins spécifiques</p></div></li>
@@ -550,51 +595,43 @@
       <!-- 4. MATRICE DE POSITIONNEMENT -->
       <h3 class="comparative-subtitle">Positionnement sur le Marché</h3>
       <p class="matrix-intro">Visualisation du positionnement de chaque solution selon deux axes : <strong>Spécialisation IT</strong> (horizontal) et <strong>Sophistication des Fonctionnalités</strong> (vertical).</p>
-      <div class="matrix-container">
-        <!-- Lignes de grille -->
-        <div class="matrix-gridlines">
-          <div class="gridline-h"></div>
-          <div class="gridline-v"></div>
-        </div>
-        <!-- Axes -->
-        <div class="matrix-axis-h">
-          <span class="axis-end axis-left">← Généraliste</span>
-          <span class="axis-end axis-right">Spécialisé IT →</span>
-        </div>
-        <div class="matrix-axis-v">
-          <span class="axis-end axis-top">↑ Avancé</span>
-          <span class="axis-end axis-bottom">Basique ↓</span>
-        </div>
-        <!-- Quadrants -->
-        <div class="matrix-quadrants">
-          <div class="quadrant q-tl"><span class="quadrant-label">Leader Généraliste</span></div>
-          <div class="quadrant q-tr"><span class="quadrant-label">Leader Spécialisé</span></div>
-          <div class="quadrant q-bl"><span class="quadrant-label">Niche Basique</span></div>
-          <div class="quadrant q-br"><span class="quadrant-label">Challenger</span></div>
-        </div>
-        <!-- Points -->
-        <div class="matrix-points">
-          <div class="matrix-point stockpro-point" style="left: 78%; top: 22%;">
-            <div class="point-pulse"></div>
-            <div class="point-marker">📦</div>
-            <div class="point-info">
-              <span class="point-name">StockPro</span>
-              <span class="point-desc">Spécialisé IT + Pro</span>
-            </div>
+      <div class="matrix-visual">
+        <!-- 3 colonnes : une carte par solution -->
+        <div class="matrix-card matrix-card-stockpro">
+          <div class="matrix-card-glow"></div>
+          <div class="matrix-card-badge">Leader Spécialisé</div>
+          <div class="matrix-card-icon">📦</div>
+          <h4 class="matrix-card-name">StockPro</h4>
+          <p class="matrix-card-pos">Spécialisé IT + Fonctionnalités Pro</p>
+          <div class="matrix-card-bars">
+            <div class="bar-row"><span class="bar-label">Spécialisation IT</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:95%"></div></div><span class="bar-val">95%</span></div>
+            <div class="bar-row"><span class="bar-label">Fonctionnalités</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:75%"></div></div><span class="bar-val">75%</span></div>
+            <div class="bar-row"><span class="bar-label">Simplicité</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:90%"></div></div><span class="bar-val">90%</span></div>
+            <div class="bar-row"><span class="bar-label">Coût</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:85%"></div></div><span class="bar-val">Flexible</span></div>
           </div>
-          <div class="matrix-point timly-point" style="left: 25%; top: 20%;">
-            <div class="point-marker">⏱️</div>
-            <div class="point-info">
-              <span class="point-name">Timly</span>
-              <span class="point-desc">Généraliste + Avancé</span>
-            </div>
+        </div>
+        <div class="matrix-card matrix-card-timly">
+          <div class="matrix-card-badge">Leader Généraliste</div>
+          <div class="matrix-card-icon">⏱️</div>
+          <h4 class="matrix-card-name">Timly</h4>
+          <p class="matrix-card-pos">Généraliste + Très avancé</p>
+          <div class="matrix-card-bars">
+            <div class="bar-row"><span class="bar-label">Spécialisation IT</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:30%"></div></div><span class="bar-val">30%</span></div>
+            <div class="bar-row"><span class="bar-label">Fonctionnalités</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:95%"></div></div><span class="bar-val">95%</span></div>
+            <div class="bar-row"><span class="bar-label">Simplicité</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:40%"></div></div><span class="bar-val">40%</span></div>
+            <div class="bar-row"><span class="bar-label">Coût</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:30%"></div></div><span class="bar-val">185€/mois</span></div>
           </div>
-          <div class="matrix-point simple-point" style="left: 20%; top: 75%;">
-            <div class="point-marker">📋</div>
-            <div class="point-info">
-              <span class="point-name">Inventaire Simple</span>
-              <span class="point-desc">Généraliste + Basique</span>
-            </div>
+        </div>
+        <div class="matrix-card matrix-card-simple">
+          <div class="matrix-card-badge">Niche Basique</div>
+          <div class="matrix-card-icon">📋</div>
+          <h4 class="matrix-card-name">Inventaire Simple</h4>
+          <p class="matrix-card-pos">Généraliste + Basique</p>
+          <div class="matrix-card-bars">
+            <div class="bar-row"><span class="bar-label">Spécialisation IT</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:10%"></div></div><span class="bar-val">10%</span></div>
+            <div class="bar-row"><span class="bar-label">Fonctionnalités</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:25%"></div></div><span class="bar-val">25%</span></div>
+            <div class="bar-row"><span class="bar-label">Simplicité</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:95%"></div></div><span class="bar-val">95%</span></div>
+            <div class="bar-row"><span class="bar-label">Coût</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:95%"></div></div><span class="bar-val">Gratuit</span></div>
           </div>
         </div>
       </div>
@@ -611,7 +648,7 @@
       </div>
       <div class="advantages-grid">
         <div class="advantage-card"><span class="card-number">01</span><span class="card-icon">🎯</span><h4>Spécialisation IT</h4><p>Conçu spécifiquement pour le stock informatique avec des workflows optimisés, des catégories adaptées et une ergonomie pensée pour les techniciens IT.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">Généraliste multi-secteurs</span></div></div>
-        <div class="advantage-card"><span class="card-number">02</span><span class="card-icon">💰</span><h4>Modèle Économique Flexible</h4><p>Pas d'abonnement mensuel récurrent. Solution sur-mesure avec licence adaptée à vos besoins réels sans frais cachés ni augmentations surprises.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">À partir de 49€/mois + options</span></div></div>
+        <div class="advantage-card"><span class="card-number">02</span><span class="card-icon">💰</span><h4>Modèle Économique Flexible</h4><p>Pas d'abonnement mensuel récurrent. Solution sur-mesure avec licence adaptée à vos besoins réels sans frais cachés ni augmentations surprises.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">À partir de 185€/mois (2 220€/an)</span></div></div>
         <div class="advantage-card"><span class="card-number">03</span><span class="card-icon">🔧</span><h4>Personnalisation Totale</h4><p>Application développée en interne, entièrement modifiable et extensible selon vos besoins spécifiques. Vous gardez le contrôle total.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">Personnalisation limitée (SaaS)</span></div></div>
         <div class="advantage-card"><span class="card-number">04</span><span class="card-icon">👥</span><h4>Multi-Utilisateurs Natif</h4><p>Authentification sécurisée, gestion de profils, traçabilité complète des opérations par utilisateur dès la version de base.</p><div class="card-comparison"><span class="vs-label">vs Inventaire Simple :</span><span class="vs-text">Mono-utilisateur</span></div></div>
         <div class="advantage-card"><span class="card-number">05</span><span class="card-icon">☁️</span><h4>Cloud Moderne & Sécurisé</h4><p>Synchronisation temps réel avec la base réseau entreprise, sauvegarde automatique, accès depuis plusieurs terminaux avec sécurité renforcée.</p><div class="card-comparison"><span class="vs-label">vs Inventaire Simple :</span><span class="vs-text">Export/import manuel uniquement</span></div></div>
@@ -629,28 +666,70 @@
     <section class="content-section" id="technique">
       <div class="section-badge"><span class="badge-icon">🔧</span><span class="badge-text">Stack</span></div>
       <h2 class="section-title"><span class="title-number">04</span><span class="title-text">Architecture Technique</span></h2>
-      <div class="architecture-diagram">
-        <div class="arch-layer frontend-layer">
-          <div class="layer-header"><span class="layer-icon">📱</span><h4>Frontend</h4></div>
-          <div class="layer-items">
-            <div class="tech-bubble">Application Android</div>
-            <div class="tech-bubble">Android 16</div>
-            <div class="tech-bubble">Smartphones durcis</div>
+      <div class="arch-stack">
+        <!-- Frontend -->
+        <div class="arch-card arch-frontend">
+          <div class="arch-card-accent"></div>
+          <div class="arch-card-header">
+            <div class="arch-icon-wrap arch-icon-frontend">📱</div>
+            <div>
+              <h4 class="arch-card-title">Frontend</h4>
+              <p class="arch-card-sub">Interface utilisateur mobile</p>
+            </div>
+          </div>
+          <div class="arch-tags">
+            <span class="arch-tag">Application Android</span>
+            <span class="arch-tag">Android 16</span>
+            <span class="arch-tag arch-tag-accent">Kotlin / Jetpack Compose</span>
+            <span class="arch-tag">Smartphone Android / iOS</span>
           </div>
         </div>
-        <div class="arch-connector"></div>
-        <div class="arch-layer backend-layer">
-          <div class="layer-header"><span class="layer-icon">🏢</span><h4>Backend</h4></div>
-          <div class="layer-items">
-            <div class="tech-bubble">Base de données sur le réseau entreprise</div>
-            <div class="tech-bubble">PostgreSQL</div>
+        <!-- Connecteur -->
+        <div class="arch-flow">
+          <div class="arch-flow-line"></div>
+          <span class="arch-flow-label">API REST / Sync</span>
+          <div class="arch-flow-line"></div>
+        </div>
+        <!-- Backend -->
+        <div class="arch-card arch-backend">
+          <div class="arch-card-accent"></div>
+          <div class="arch-card-header">
+            <div class="arch-icon-wrap arch-icon-backend">🏢</div>
+            <div>
+              <h4 class="arch-card-title">Backend</h4>
+              <p class="arch-card-sub">Serveur et logique métier</p>
+            </div>
+          </div>
+          <div class="arch-tags">
+            <span class="arch-tag">Base de données réseau entreprise</span>
+            <span class="arch-tag arch-tag-accent">PostgreSQL</span>
+            <span class="arch-tag">Authentification sécurisée</span>
+            <span class="arch-tag">Synchronisation temps réel</span>
           </div>
         </div>
-        <div class="arch-connector"></div>
-        <div class="arch-layer data-layer">
-          <div class="layer-header"><span class="layer-icon">🗄️</span><h4>Modèle de données</h4></div>
-          <div class="layer-items">
-            <code>Users</code> <code>Sites</code> <code>Articles</code> <code>Movements</code> <code>Categories</code> <code>Locations</code>
+        <!-- Connecteur -->
+        <div class="arch-flow">
+          <div class="arch-flow-line"></div>
+          <span class="arch-flow-label">ORM / Requêtes SQL</span>
+          <div class="arch-flow-line"></div>
+        </div>
+        <!-- Data -->
+        <div class="arch-card arch-data">
+          <div class="arch-card-accent"></div>
+          <div class="arch-card-header">
+            <div class="arch-icon-wrap arch-icon-data">🗄️</div>
+            <div>
+              <h4 class="arch-card-title">Modèle de données</h4>
+              <p class="arch-card-sub">6 tables principales</p>
+            </div>
+          </div>
+          <div class="arch-db-grid">
+            <div class="arch-db-table"><span class="db-icon">👤</span><span class="db-name">Users</span></div>
+            <div class="arch-db-table"><span class="db-icon">🏢</span><span class="db-name">Sites</span></div>
+            <div class="arch-db-table"><span class="db-icon">📦</span><span class="db-name">Articles</span></div>
+            <div class="arch-db-table"><span class="db-icon">🔄</span><span class="db-name">Movements</span></div>
+            <div class="arch-db-table"><span class="db-icon">🏷️</span><span class="db-name">Categories</span></div>
+            <div class="arch-db-table"><span class="db-icon">📍</span><span class="db-name">Locations</span></div>
           </div>
         </div>
       </div>
