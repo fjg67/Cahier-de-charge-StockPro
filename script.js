@@ -377,11 +377,11 @@ function initComparativeAnimations() {
   const advantageCards = document.querySelectorAll('.advantage-card');
   const matrixPoints = document.querySelectorAll('.matrix-point');
 
+  // Animations sans opacity:0 pour éviter les éléments invisibles si GSAP/ScrollTrigger échoue
   if (cards.length) {
     gsap.from(cards, {
       scrollTrigger: { trigger: '.competitors-grid', start: 'top 85%' },
-      opacity: 0,
-      y: 40,
+      y: 50,
       stagger: 0.15,
       duration: 0.7,
       ease: 'power2.out'
@@ -391,7 +391,6 @@ function initComparativeAnimations() {
   if (advantageCards.length) {
     gsap.from(advantageCards, {
       scrollTrigger: { trigger: '.advantages-grid', start: 'top 85%' },
-      opacity: 0,
       y: 40,
       stagger: 0.08,
       duration: 0.6,
@@ -402,11 +401,10 @@ function initComparativeAnimations() {
   if (matrixPoints.length) {
     gsap.from(matrixPoints, {
       scrollTrigger: { trigger: '.matrix-container', start: 'top 85%' },
-      scale: 0,
-      opacity: 0,
+      y: 30,
       stagger: 0.15,
       duration: 0.6,
-      ease: 'back.out(1.5)'
+      ease: 'power2.out'
     });
   }
 }
