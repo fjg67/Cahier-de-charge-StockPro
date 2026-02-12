@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 </head>
 <body>
@@ -186,6 +186,7 @@
           <button class="tab-btn" data-tab="articles"><span class="tab-icon">📦</span><span class="tab-text">Articles</span></button>
           <button class="tab-btn" data-tab="scan"><span class="tab-icon">📷</span><span class="tab-text">Scan</span></button>
           <button class="tab-btn" data-tab="mouvements"><span class="tab-icon">↕️</span><span class="tab-text">Mouvements</span></button>
+          <button class="tab-btn" data-tab="alertes"><span class="tab-icon">📧</span><span class="tab-text">Alertes Email</span></button>
           <button class="tab-btn" data-tab="autres"><span class="tab-icon">⚙️</span><span class="tab-text">Autres</span></button>
           <div class="tab-indicator"></div>
         </div>
@@ -287,18 +288,41 @@
               </div>
             </div>
           </div>
+          <div class="feature-tab-content" id="tab-alertes">
+            <div class="feature-layout">
+              <div class="feature-text">
+                <span class="feature-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">📧 Notification</span>
+                <h3>Alerte stock par email</h3>
+                <div class="feature-details">
+                  <h4>Fonctionnement :</h4>
+                  <ul>
+                    <li>Détection automatique si stock ≤ stock minimum</li>
+                    <li>Envoi d'un email récapitulatif au responsable du site</li>
+                    <li>Tableau détaillé : article, référence, emplacement, stock actuel, stock minimum, statut</li>
+                    <li>Indication du site concerné et horodatage</li>
+                  </ul>
+                </div>
+                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Anticiper les ruptures de stock et alerter le responsable en temps réel sans ouvrir l'application.</p></div>
+              </div>
+              <div class="feature-mockups">
+                <div class="email-alert-preview" data-lightbox>
+                  <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-cf6fa4a8-44c2-45d6-89fb-6cd012b9aabf.png" alt="Alerte Stock par email">
+                  <p class="mockup-caption">Exemple d'email d'alerte stock reçu par le responsable</p>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="feature-tab-content" id="tab-autres">
             <div class="feature-layout">
               <div class="feature-text">
                 <h3>Alertes, Sync & Export</h3>
-                <p><strong>3.6 Alertes stock :</strong> Détection automatique si stock ≤ stock minimum. Notification par email avec détail des articles en rupture. Objectif : anticiper les ruptures.</p>
+                <p><strong>3.6 Alertes stock :</strong> Détection automatique si stock ≤ stock minimum. Indicateur visuel dans la liste articles et le tableau de bord.</p>
                 <p><strong>3.7 Synchronisation :</strong> Base de données sur le réseau entreprise, indicateur d'état, sync manuelle, données en attente.</p>
                 <p><strong>3.8 Export :</strong> CSV (fiche article + historique des mouvements), enregistré sur le téléphone, exploitation Excel.</p>
               </div>
               <div class="feature-mockups">
                 <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-3510ff32-b203-4a37-bb0b-c05c9c78cb5f.png" alt="Réglages"><p class="mockup-caption">Réglages & Site actif</p></div>
                 <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-510b4253-026b-4734-91f5-cc59b1fa5b93.png" alt="Export CSV"><p class="mockup-caption">Export CSV</p></div>
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-cf6fa4a8-44c2-45d6-89fb-6cd012b9aabf.png" alt="Alerte Stock"><p class="mockup-caption">Alerte stock par email</p></div>
               </div>
             </div>
           </div>
