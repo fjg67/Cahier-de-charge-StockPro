@@ -1,5 +1,5 @@
 /**
- * StockPro - Cahier des Charges ULTRA-PREMIUM
+ * IT-Inventory - Cahier des Charges ULTRA-PREMIUM
  * Animations GSAP & Interactions
  */
 

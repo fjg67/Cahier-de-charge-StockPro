@@ -1,5 +1,5 @@
 /* ============================================
-   StockPro - Cahier des Charges ULTRA-PREMIUM
+   IT-Inventory - Cahier des Charges ULTRA-PREMIUM
    Design System & Animations
    ============================================ */
 
@@ -1373,7 +1373,7 @@ body.no-gsap .hero-title {
   color: var(--primary-light);
 }
 
-/* Colonne StockPro surlignée */
+/* Colonne IT-Inventory surlignée */
 .comparison-table tbody td:nth-child(2) {
   background: rgba(99, 102, 241, 0.06);
 }
@@ -1410,7 +1410,7 @@ body.no-gsap .hero-title {
 
 .comparison-table .info-btn:hover { opacity: 1; }
 
-/* Cellules de valeur (colonnes StockPro / Timly / Inventaire) */
+/* Cellules de valeur (colonnes IT-Inventory / Timly / Inventaire) */
 .comparison-table td.feature-value {
   padding: 0.75rem 0.5rem;
   text-align: center;
@@ -1685,7 +1685,7 @@ body.no-gsap .hero-title {
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
 }
 
-/* Glow spécifique StockPro */
+/* Glow spécifique IT-Inventory */
 .matrix-card-stockpro {
   border-color: rgba(99, 102, 241, 0.4);
   background: linear-gradient(165deg, rgba(99, 102, 241, 0.18) 0%, rgba(20, 20, 38, 0.95) 60%);
