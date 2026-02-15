@@ -1,1041 +1,2444 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cahier des Charges - IT-Inventory | Gestion de Stock IT</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-</head>
-<body>
-  <div class="print-header" aria-hidden="true">IT-Inventory - Cahier des Charges Fonctionnel et Technique</div>
-
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-container">
-      <a href="#" class="navbar-logo">
-        <img src="assets/favicon.svg" alt="IT-Inventory" class="logo-img">
-        <span class="logo-text">IT-Inventory</span>
-      </a>
-      <ul class="navbar-menu">
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#perimetre">Périmètre</a></li>
-        <li><a href="#fonctionnel">Fonctionnel</a></li>
-        <li><a href="#comparatif">Comparatif</a></li>
-        <li><a href="#technique">Technique</a></li>
-        <li><a href="#benefices">Bénéfices</a></li>
-        <li><a href="#evolutions">Évolutions</a></li>
-      </ul>
-      <div class="navbar-actions">
-        <button type="button" class="btn-icon theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
-        <button type="button" class="btn-export" id="exportPdfBtn">Export PDF</button>
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cahier des Charges - IT-Inventory | Gestion de Stock IT</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=11" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+  </head>
+  <body>
+    <div class="print-header" aria-hidden="true">
+      IT-Inventory - Cahier des Charges Fonctionnel et Technique
     </div>
-    <div class="scroll-progress" id="scrollProgress"></div>
-  </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-background">
-      <div class="hero-gradient"></div>
-      <div class="hero-particles" id="particles"></div>
-      <div class="hero-grid"></div>
-    </div>
-    <div class="hero-split">
-      <!-- Côté texte -->
-      <div class="hero-text-side">
-        <div class="hero-badge">📘 Cahier des Charges V1.0</div>
-        <h1 class="hero-title">IT-Inventory</h1>
-        <p class="hero-subtitle">Gestion de Stock IT</p>
-        <p class="hero-description">Application mobile moderne, connectée et sécurisée pour la gestion du stock informatique</p>
-        <div class="hero-stats-row">
-          <div class="hero-stat"><span class="hero-stat-num">6</span><span class="hero-stat-label">Modules</span></div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-label">Plateformes</span></div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat"><span class="hero-stat-num">&lt;2s</span><span class="hero-stat-label">Réponse</span></div>
-        </div>
-        <div class="hero-cta">
-          <a href="#introduction" class="btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-            Découvrir le projet
-          </a>
-          <button type="button" class="btn-secondary" id="heroExportBtn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Télécharger PDF
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        <a href="#" class="navbar-logo">
+          <img src="assets/favicon.svg" alt="IT-Inventory" class="logo-img" />
+          <span class="logo-text">IT-Inventory</span>
+        </a>
+        <ul class="navbar-menu">
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#perimetre">Périmètre</a></li>
+          <li><a href="#fonctionnel">Fonctionnel</a></li>
+          <li><a href="#comparatif">Comparatif</a></li>
+          <li><a href="#technique">Technique</a></li>
+          <li><a href="#benefices">Bénéfices</a></li>
+          <li><a href="#evolutions">Évolutions</a></li>
+        </ul>
+        <div class="navbar-actions">
+          <button
+            type="button"
+            class="btn-icon theme-toggle"
+            id="themeToggle"
+            aria-label="Changer de thème"
+          >
+            🌙
+          </button>
+          <button type="button" class="btn-export" id="exportPdfBtn">
+            Export PDF
           </button>
         </div>
       </div>
-      <!-- Côté mockup téléphone -->
-      <div class="hero-phone-side">
-        <div class="phone-glow"></div>
-        <div class="phone-mockup">
-          <div class="phone-frame">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-26e2a576-aad7-47b4-9edc-1da2b7ff6302.png" alt="IT-Inventory Dashboard" class="phone-screenshot">
+      <div class="scroll-progress" id="scrollProgress"></div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <div class="hero-split">
+        <!-- Côté texte -->
+        <div class="hero-text-side">
+          <div class="hero-badge">📘 Cahier des Charges V1.0</div>
+          <h1 class="hero-title">IT-Inventory</h1>
+          <p class="hero-subtitle">Gestion de Stock IT</p>
+          <p class="hero-description">
+            Application mobile moderne, connectée et sécurisée pour la gestion
+            du stock informatique
+          </p>
+          <div class="hero-stats-row">
+            <div class="hero-stat">
+              <span class="hero-stat-num">6</span
+              ><span class="hero-stat-label">Modules</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">2</span
+              ><span class="hero-stat-label">Plateformes</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">&lt;2s</span
+              ><span class="hero-stat-label">Réponse</span>
             </div>
           </div>
-        </div>
-        <!-- Badges flottants -->
-        <div class="floating-badge fb-scan">
-          <span class="fb-icon">📷</span>
-          <span class="fb-text">Scan code-barres</span>
-        </div>
-        <div class="floating-badge fb-sync">
-          <span class="fb-icon">🔄</span>
-          <span class="fb-text">Sync temps réel</span>
-        </div>
-        <div class="floating-badge fb-stock">
-          <span class="fb-icon">📦</span>
-          <span class="fb-text">Gestion de stock</span>
-        </div>
-        <div class="floating-badge fb-alert">
-          <span class="fb-icon">🔔</span>
-          <span class="fb-text">Alertes auto</span>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>Défiler</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
-
-  <main class="main-content">
-    <!-- Section 1: Introduction -->
-    <section class="content-section" id="introduction">
-      <div class="section-badge">
-        <span class="badge-icon">🎯</span>
-        <span class="badge-text">Contexte</span>
-      </div>
-      <h2 class="section-title">
-        <span class="title-number">01</span>
-        <span class="title-text">Introduction</span>
-      </h2>
-      <div class="intro-grid">
-        <div class="intro-card context-card">
-          <div class="card-icon">🎯</div>
-          <h3>Contexte</h3>
-          <ul class="problem-list">
-            <li><span class="icon">⚠️</span> Risques d'erreurs de saisie</li>
-            <li><span class="icon">⚠️</span> Manque de traçabilité des mouvements</li>
-            <li><span class="icon">⚠️</span> Écarts d'inventaire</li>
-            <li><span class="icon">⚠️</span> Perte de temps opérationnelle</li>
-            <li><span class="icon">⚠️</span> Visibilité limitée sur les niveaux de stock</li>
-          </ul>
-          <p class="intro-highlight">L'application IT-Inventory a pour objectif de digitaliser et sécuriser la gestion du stock IT.</p>
-        </div>
-        <div class="intro-card objectives-card">
-          <div class="card-icon">🚀</div>
-          <h3>Objectifs du projet</h3>
-          <div class="objectives-grid">
-            <div class="objective-item"><span class="objective-icon">📦</span><p>Centraliser la gestion des articles IT</p></div>
-            <div class="objective-item"><span class="objective-icon">📋</span><p>Assurer la traçabilité complète des mouvements</p></div>
-            <div class="objective-item"><span class="objective-icon">🔔</span><p>Automatiser les alertes de stock faible</p></div>
-            <div class="objective-item"><span class="objective-icon">✓</span><p>Réduire les erreurs humaines</p></div>
-            <div class="objective-item"><span class="objective-icon">📱</span><p>Accès mobile en temps réel</p></div>
-            <div class="objective-item"><span class="objective-icon">📊</span><p>Faciliter l'export des données</p></div>
+          <div class="hero-cta">
+            <a href="#introduction" class="btn-primary">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              Découvrir le projet
+            </a>
+            <button type="button" class="btn-secondary" id="heroExportBtn">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Télécharger PDF
+            </button>
           </div>
         </div>
+        <!-- Côté mockup téléphone -->
+        <div class="hero-phone-side">
+          <div class="phone-glow"></div>
+          <div class="phone-mockup">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img
+                  src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-26e2a576-aad7-47b4-9edc-1da2b7ff6302.png"
+                  alt="IT-Inventory Dashboard"
+                  class="phone-screenshot"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Badges flottants -->
+          <div class="floating-badge fb-scan">
+            <span class="fb-icon">📷</span>
+            <span class="fb-text">Scan code-barres</span>
+          </div>
+          <div class="floating-badge fb-sync">
+            <span class="fb-icon">🔄</span>
+            <span class="fb-text">Sync temps réel</span>
+          </div>
+          <div class="floating-badge fb-stock">
+            <span class="fb-icon">📦</span>
+            <span class="fb-text">Gestion de stock</span>
+          </div>
+          <div class="floating-badge fb-alert">
+            <span class="fb-icon">🔔</span>
+            <span class="fb-text">Alertes auto</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Défiler</span>
+        <div class="scroll-arrow"></div>
       </div>
     </section>
 
-    <!-- Section 2: Périmètre -->
-    <section class="content-section" id="perimetre">
-      <div class="section-badge"><span class="badge-icon">📋</span><span class="badge-text">Scope</span></div>
-      <h2 class="section-title"><span class="title-number">02</span><span class="title-text">Périmètre du projet</span></h2>
-      <div class="scope-container">
-        <div class="scope-card scope-in">
-          <div class="card-header"><span class="header-icon">✅</span><h3>Inclus dans le périmètre</h3></div>
-          <ul class="scope-list">
-            <li><span class="check-icon">✓</span> Application mobile Android</li>
-            <li><span class="check-icon">✓</span> Authentification multi-utilisateurs</li>
-            <li><span class="check-icon">✓</span> Gestion multi-sites</li>
-            <li><span class="check-icon">✓</span> Gestion des articles</li>
-            <li><span class="check-icon">✓</span> Gestion des mouvements</li>
-            <li><span class="check-icon">✓</span> Scan code-barres</li>
-            <li><span class="check-icon">✓</span> Synchronisation cloud</li>
-            <li><span class="check-icon">✓</span> Export CSV</li>
-          </ul>
+    <main class="main-content">
+      <!-- Section 1: Introduction -->
+      <section class="content-section" id="introduction">
+        <div class="section-badge">
+          <span class="badge-icon">🎯</span>
+          <span class="badge-text">Contexte</span>
         </div>
-        <div class="scope-card scope-out">
-          <div class="card-header"><span class="header-icon">⏸️</span><h3>Hors périmètre (phase actuelle)</h3></div>
-          <ul class="scope-list">
-            <li><span class="cross-icon">○</span> Version Web</li>
-            <li><span class="cross-icon">○</span> Gestion fournisseurs avancée</li>
-            <li><span class="cross-icon">○</span> Module commande automatique</li>
-            <li><span class="cross-icon">○</span> Interface BI avancée</li>
-          </ul>
+        <h2 class="section-title">
+          <span class="title-number">01</span>
+          <span class="title-text">Introduction</span>
+        </h2>
+        <div class="intro-grid">
+          <div class="intro-card context-card">
+            <div class="card-icon">🎯</div>
+            <h3>Contexte</h3>
+            <ul class="problem-list">
+              <li><span class="icon">⚠️</span> Risques d'erreurs de saisie</li>
+              <li>
+                <span class="icon">⚠️</span> Manque de traçabilité des
+                mouvements
+              </li>
+              <li><span class="icon">⚠️</span> Écarts d'inventaire</li>
+              <li>
+                <span class="icon">⚠️</span> Perte de temps opérationnelle
+              </li>
+              <li>
+                <span class="icon">⚠️</span> Visibilité limitée sur les niveaux
+                de stock
+              </li>
+            </ul>
+            <p class="intro-highlight">
+              L'application IT-Inventory a pour objectif de digitaliser et
+              sécuriser la gestion du stock IT.
+            </p>
+          </div>
+          <div class="intro-card objectives-card">
+            <div class="card-icon">🚀</div>
+            <h3>Objectifs du projet</h3>
+            <div class="objectives-grid">
+              <div class="objective-item">
+                <span class="objective-icon">📦</span>
+                <p>Centraliser la gestion des articles IT</p>
+              </div>
+              <div class="objective-item">
+                <span class="objective-icon">📋</span>
+                <p>Assurer la traçabilité complète des mouvements</p>
+              </div>
+              <div class="objective-item">
+                <span class="objective-icon">🔔</span>
+                <p>Automatiser les alertes de stock faible</p>
+              </div>
+              <div class="objective-item">
+                <span class="objective-icon">✓</span>
+                <p>Réduire les erreurs humaines</p>
+              </div>
+              <div class="objective-item">
+                <span class="objective-icon">📱</span>
+                <p>Accès mobile en temps réel</p>
+              </div>
+              <div class="objective-item">
+                <span class="objective-icon">📊</span>
+                <p>Faciliter l'export des données</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Section 3: Description Fonctionnelle -->
-    <section class="content-section" id="fonctionnel">
-      <div class="section-badge"><span class="badge-icon">⚙️</span><span class="badge-text">Fonctionnalités</span></div>
-      <h2 class="section-title"><span class="title-number">03</span><span class="title-text">Description Fonctionnelle</span></h2>
-      <div class="features-container">
-        <div class="features-tabs">
-          <button class="tab-btn active" data-tab="auth"><span class="tab-icon">🔒</span><span class="tab-text">Auth</span></button>
-          <button class="tab-btn" data-tab="dashboard"><span class="tab-icon">📊</span><span class="tab-text">Dashboard</span></button>
-          <button class="tab-btn" data-tab="articles"><span class="tab-icon">📦</span><span class="tab-text">Articles</span></button>
-          <button class="tab-btn" data-tab="scan"><span class="tab-icon">📷</span><span class="tab-text">Scan</span></button>
-          <button class="tab-btn" data-tab="mouvements"><span class="tab-icon">↕️</span><span class="tab-text">Mouvements</span></button>
-          <button class="tab-btn" data-tab="alertes"><span class="tab-icon">📧</span><span class="tab-text">Alertes Email</span></button>
-          <button class="tab-btn" data-tab="autres"><span class="tab-icon">⚙️</span><span class="tab-text">Autres</span></button>
-          <div class="tab-indicator"></div>
+      <!-- Section 2: Périmètre -->
+      <section class="content-section" id="perimetre">
+        <div class="section-badge">
+          <span class="badge-icon">📋</span
+          ><span class="badge-text">Scope</span>
         </div>
-        <div class="features-content">
-          <div class="feature-tab-content active" id="tab-auth">
-            <div class="feature-layout">
-              <div class="feature-text">
-                <span class="feature-badge">Sécurité</span>
-                <h3>Authentification et gestion des utilisateurs</h3>
-                <div class="feature-details">
-                  <h4>Fonctionnalités attendues :</h4>
-                  <ul>
-                    <li>Connexion sécurisée par identifiant / mot de passe</li>
-                    <li>Sélection de profil utilisateur</li>
-                    <li>Gestion du site actif</li>
-                    <li>Maintien de session (« Se souvenir de moi »)</li>
-                    <li>Indicateur d'état de connexion</li>
-                  </ul>
-                </div>
-                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Sécuriser l'accès aux données, assurer la traçabilité, isoler les données par site.</p></div>
-              </div>
-              <div class="feature-mockups">
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-292a031f-0f2b-4f27-8935-a7ba413922c6.png" alt="Connexion"><p class="mockup-caption">Écran de connexion</p></div>
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-07092974-0807-4a3c-a917-6f2e63b7d001.png" alt="Profil"><p class="mockup-caption">Sélection de profil</p></div>
-              </div>
+        <h2 class="section-title">
+          <span class="title-number">02</span
+          ><span class="title-text">Périmètre du projet</span>
+        </h2>
+        <div class="scope-container">
+          <div class="scope-card scope-in">
+            <div class="card-header">
+              <span class="header-icon">✅</span>
+              <h3>Inclus dans le périmètre</h3>
             </div>
-          </div>
-          <div class="feature-tab-content" id="tab-dashboard">
-            <div class="feature-layout">
-              <div class="feature-text">
-                <span class="feature-badge">Vue synthétique</span>
-                <h3>Tableau de bord (Accueil)</h3>
-                <p>Le tableau de bord offre une vue synthétique et opérationnelle du stock en temps réel.</p>
-                <div class="feature-details">
-                  <h4>Indicateurs affichés :</h4>
-                  <ul>
-                    <li>Nombre total d'articles en stock</li>
-                    <li>Nombre d'alertes stock (stock faible)</li>
-                    <li>Nombre de mouvements du jour</li>
-                    <li>Bouton principal d'accès au scan</li>
-                  </ul>
-                </div>
-                <div class="feature-details">
-                  <h4>Actions rapides :</h4>
-                  <ul>
-                    <li>Entrée rapide (+)</li>
-                    <li>Sortie rapide (−)</li>
-                    <li>Liste des articles</li>
-                    <li>Réglages</li>
-                  </ul>
-                </div>
-                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Permettre une prise de décision rapide et une vision immédiate de la situation du stock.</p></div>
-              </div>
-              <div class="feature-mockups">
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-34c8516d-a558-4bdc-ac76-1666de64a2de.png" alt="Tableau de bord IT-Inventory"><p class="mockup-caption">Tableau de bord</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="feature-tab-content" id="tab-articles">
-            <div class="feature-layout">
-              <div class="feature-text">
-                <span class="feature-badge">Catalogue</span>
-                <h3>Gestion des articles</h3>
-                <p><strong>Consultation :</strong> Liste, recherche, filtres, tri A-Z, indicateur stock faible.</p>
-                <p><strong>Fiche article :</strong> Référence, famille, marque, type, emplacement, stock actuel/minimum, historique.</p>
-                <p><strong>Actions :</strong> Entrée, sortie, ajustement, transfert inter-site, modification, export.</p>
-              </div>
-              <div class="feature-mockups">
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-354755b8-4e27-418c-bc18-0e328df1a707.png" alt="Articles"><p class="mockup-caption">Liste des articles</p></div>
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-70bc7db2-e262-4984-9d72-956cbdaf9d0b.png" alt="Fiche article"><p class="mockup-caption">Fiche article</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="feature-tab-content" id="tab-scan">
-            <div class="feature-layout">
-              <div class="feature-text">
-                <span class="feature-badge">Rapidité</span>
-                <h3>Scan Code-Barres</h3>
-                <p>Scan via caméra mobile, compatibilité scanner externe, accès automatique à la fiche article.</p>
-                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Réduire les erreurs de saisie, accélérer les opérations, simplifier les inventaires.</p></div>
-              </div>
-              <div class="feature-mockups">
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-d060235a-4328-4e79-94f2-9931ca734cde.png" alt="Scanner"><p class="mockup-caption">Scanner code-barres</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="feature-tab-content" id="tab-mouvements">
-            <div class="feature-layout">
-              <div class="feature-text">
-                <span class="feature-badge">Traçabilité</span>
-                <h3>Gestion des mouvements</h3>
-                <p><strong>Types :</strong> Entrée (+), Sortie (-), Ajustement, Transfert.</p>
-                <p><strong>Informations :</strong> Article, quantité, date/heure, utilisateur, type d'opération.</p>
-                <p><strong>Interface :</strong> Filtre par type, timeline, statistiques journalières.</p>
-              </div>
-              <div class="feature-mockups">
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-0c89b1ce-cccc-4696-a63e-82160cae376e.png" alt="Mouvements"><p class="mockup-caption">Mouvements</p></div>
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-f7d1ddef-2bc2-49c1-937b-bc21525b5067.png" alt="Historique"><p class="mockup-caption">Historique & Export</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="feature-tab-content" id="tab-alertes">
-            <div class="feature-layout">
-              <div class="feature-text">
-                <span class="feature-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">📧 Notification</span>
-                <h3>Alerte stock par email</h3>
-                <div class="feature-details">
-                  <h4>Fonctionnement :</h4>
-                  <ul>
-                    <li>Détection automatique si stock ≤ stock minimum</li>
-                    <li>Envoi d'un email récapitulatif au responsable du site</li>
-                    <li>Tableau détaillé : article, référence, emplacement, stock actuel, stock minimum, statut</li>
-                    <li>Indication du site concerné et horodatage</li>
-                  </ul>
-                </div>
-                <div class="feature-goal"><span class="goal-icon">🎯</span><p>Anticiper les ruptures de stock et alerter le responsable en temps réel sans ouvrir l'application.</p></div>
-              </div>
-              <div class="feature-mockups">
-                <div class="email-alert-preview" data-lightbox>
-                  <img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-cf6fa4a8-44c2-45d6-89fb-6cd012b9aabf.png" alt="Alerte Stock par email">
-                  <p class="mockup-caption">Exemple d'email d'alerte stock reçu par le responsable</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="feature-tab-content" id="tab-autres">
-            <div class="feature-layout">
-              <div class="feature-text">
-                <h3>Alertes, Sync & Export</h3>
-                <p><strong>3.6 Alertes stock :</strong> Détection automatique si stock ≤ stock minimum. Indicateur visuel dans la liste articles et le tableau de bord.</p>
-                <p><strong>3.7 Synchronisation :</strong> Base de données sur le réseau entreprise, indicateur d'état, sync manuelle, données en attente.</p>
-                <p><strong>3.8 Export :</strong> CSV (fiche article + historique des mouvements), enregistré sur le téléphone, exploitation Excel.</p>
-              </div>
-              <div class="feature-mockups">
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-3510ff32-b203-4a37-bb0b-c05c9c78cb5f.png" alt="Réglages"><p class="mockup-caption">Réglages & Site actif</p></div>
-                <div class="mockup-card" data-lightbox><img src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-510b4253-026b-4734-91f5-cc59b1fa5b93.png" alt="Export CSV"><p class="mockup-caption">Export CSV</p></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3.9: Analyse Comparative du Marché -->
-    <section class="content-section" id="comparatif">
-      <div class="section-badge"><span class="badge-icon">⚖️</span><span class="badge-text">Analyse Comparative</span></div>
-      <h2 class="section-title"><span class="title-number">3.9</span><span class="title-text">IT-Inventory face à la Concurrence</span></h2>
-      <p class="comparative-intro">IT-Inventory se positionne comme une solution moderne et complète face aux acteurs établis du marché. Voici une analyse objective des fonctionnalités, avantages et limites par rapport à Timly et Stock et Inventaire Simple.</p>
-
-      <!-- 1. VUE D'ENSEMBLE (CARTES CONCURRENTS) -->
-      <h3 class="comparative-subtitle">Acteurs du Marché</h3>
-      <div class="competitors-grid">
-        <div class="competitor-card stockpro-card featured">
-          <span class="card-badge">Notre Solution</span>
-          <div class="card-logo">
-            <span class="logo-icon">📦</span>
-            <span class="logo-text">IT-Inventory</span>
-          </div>
-          <p class="card-tagline">Solution mobile moderne spécialisée pour le stock IT</p>
-          <div class="card-stats">
-            <span class="stat-item">📱 Mobile First</span>
-            <span class="stat-item">🔧 IT Focused</span>
-            <span class="stat-item">☁️ Cloud Native</span>
-          </div>
-          <div class="card-price">
-            <span class="price-label">Modèle</span>
-            <span class="price-value">Sur mesure</span>
-          </div>
-        </div>
-        <div class="competitor-card">
-          <div class="card-logo">
-            <span class="logo-icon">⏱️</span>
-            <span class="logo-text">Timly</span>
-          </div>
-          <p class="card-tagline">Plateforme SaaS complète de gestion d'équipements</p>
-          <div class="card-stats">
-            <span class="stat-item">🌐 Web + Mobile</span>
-            <span class="stat-item">📊 Multi-industries</span>
-            <span class="stat-item">👥 Multi-users</span>
-          </div>
-          <div class="card-price">
-            <span class="price-label">À partir de</span>
-            <span class="price-value">185€/mois (2 220€/an)</span>
-          </div>
-          <a href="https://timly.com" target="_blank" rel="noopener" class="card-link">Voir le site →</a>
-        </div>
-        <div class="competitor-card">
-          <div class="card-logo">
-            <span class="logo-icon">📋</span>
-            <span class="logo-text">Stock et Inventaire Simple</span>
-          </div>
-          <p class="card-tagline">Application mobile légère pour gestion de stock basique</p>
-          <div class="card-stats">
-            <span class="stat-item">📱 Mobile Only</span>
-            <span class="stat-item">💡 Simplicité</span>
-            <span class="stat-item">📴 Offline</span>
-          </div>
-          <div class="card-price">
-            <span class="price-label">Modèle</span>
-            <span class="price-value">Gratuit + Premium</span>
-          </div>
-          <a href="https://play.google.com/store/apps/details?id=com.simpleinventory" target="_blank" rel="noopener" class="card-link">Google Play Store →</a>
-        </div>
-      </div>
-
-      <!-- 2. TABLEAU COMPARATIF -->
-      <h3 class="comparative-subtitle">Comparatif des Fonctionnalités</h3>
-      <div class="table-filters">
-        <button type="button" class="filter-btn active" data-category="all">Toutes les fonctionnalités</button>
-        <button type="button" class="filter-btn" data-category="base">Fonctions de base</button>
-        <button type="button" class="filter-btn" data-category="advanced">Fonctions avancées</button>
-        <button type="button" class="filter-btn" data-category="technical">Aspects techniques</button>
-      </div>
-      <div class="comparison-table-wrapper">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th class="feature-column">Fonctionnalité</th>
-              <th class="app-column stockpro-column"><div class="column-header"><span class="app-icon">📦</span><span class="app-name">IT-Inventory</span></div></th>
-              <th class="app-column"><div class="column-header"><span class="app-icon">⏱️</span><span class="app-name">Timly</span></div></th>
-              <th class="app-column"><div class="column-header"><span class="app-icon">📋</span><span class="app-name">Inventaire Simple</span></div></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="category-row"><td colspan="4"><div class="category-header">📦 Gestion de Base</div></td></tr>
-            <tr data-category="base">
-              <td class="feature-name"><span>Gestion des articles</span><button type="button" class="info-btn" aria-label="Info" title="Liste, recherche, filtres, tri">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Complète</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Complète</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Basique</span></td>
-            </tr>
-            <tr data-category="base">
-              <td class="feature-name"><span>Scan code-barres</span><button type="button" class="info-btn" aria-label="Info" title="Caméra ou scanner externe">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label highlight">Natif + Scanner externe</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Natif uniquement</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Natif uniquement</span></td>
-            </tr>
-            <tr data-category="base">
-              <td class="feature-name"><span>Gestion multi-sites</span><button type="button" class="info-btn" aria-label="Info" title="Plusieurs emplacements">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label highlight">Natif</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Premium</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Non disponible</span></td>
-            </tr>
-            <tr data-category="base">
-              <td class="feature-name"><span>Alertes de stock faible</span><button type="button" class="info-btn" aria-label="Info" title="Détection automatique">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Automatique</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Automatique</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Manuel</span></td>
-            </tr>
-            <tr data-category="base">
-              <td class="feature-name"><span>Historique des mouvements</span><button type="button" class="info-btn" aria-label="Info" title="Traçabilité complète">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Complet + Export</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Complet</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Limité</span></td>
-            </tr>
-            <tr class="category-row"><td colspan="4"><div class="category-header">⚡ Fonctionnalités Avancées</div></td></tr>
-            <tr data-category="advanced">
-              <td class="feature-name"><span>Authentification multi-utilisateurs</span><button type="button" class="info-btn" aria-label="Info" title="Profils et rôles">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Natif + Profils</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Natif + Rôles</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Non</span></td>
-            </tr>
-            <tr data-category="advanced">
-              <td class="feature-name"><span>Synchronisation cloud</span><button type="button" class="info-btn" aria-label="Info" title="Base de données">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label highlight">Temps réel (réseau entreprise)</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Temps réel</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Export manuel</span></td>
-            </tr>
-            <tr data-category="advanced">
-              <td class="feature-name"><span>Export de données</span><button type="button" class="info-btn" aria-label="Info" title="CSV, Excel">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">CSV</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">CSV, Excel, PDF</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">CSV</span></td>
-            </tr>
-            <tr data-category="advanced">
-              <td class="feature-name"><span>Dashboard analytique</span><button type="button" class="info-btn" aria-label="Info" title="Graphiques et KPIs">ℹ️</button></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Basique (KPIs)</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Avancé (Graphiques)</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Non</span></td>
-            </tr>
-            <tr data-category="advanced">
-              <td class="feature-name"><span>Gestion des fournisseurs</span><button type="button" class="info-btn" aria-label="Info" title="Catalogues fournisseurs">ℹ️</button></td>
-              <td class="feature-value"><span class="roadmap-icon">🔜</span><span class="value-label">Roadmap</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Complet</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Non</span></td>
-            </tr>
-            <tr data-category="advanced">
-              <td class="feature-name"><span>Commandes automatiques</span><button type="button" class="info-btn" aria-label="Info" title="Réapprovisionnement">ℹ️</button></td>
-              <td class="feature-value"><span class="roadmap-icon">🔜</span><span class="value-label">Roadmap</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Oui</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Non</span></td>
-            </tr>
-            <tr data-category="advanced">
-              <td class="feature-name"><span>API / Intégrations tierces</span><button type="button" class="info-btn" aria-label="Info" title="Webhooks, REST">ℹ️</button></td>
-              <td class="feature-value"><span class="roadmap-icon">🔜</span><span class="value-label">Roadmap</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">API REST complète</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Non</span></td>
-            </tr>
-            <tr class="category-row"><td colspan="4"><div class="category-header">🔧 Aspects Techniques</div></td></tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Plateforme</span><button type="button" class="info-btn" aria-label="Info" title="OS supportés">ℹ️</button></td>
-              <td class="feature-value"><span class="value-label">Android natif</span></td>
-              <td class="feature-value"><span class="value-label">Web + iOS + Android</span></td>
-              <td class="feature-value"><span class="value-label">iOS + Android</span></td>
-            </tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Mode hors ligne</span><button type="button" class="info-btn" aria-label="Info" title="Sans connexion">ℹ️</button></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Partiel (sync auto)</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Complet</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Complet</span></td>
-            </tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Compatible matériel durci</span><button type="button" class="info-btn" aria-label="Info" title="Zebra, etc.">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label highlight">Oui (Zebra TC22)</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Oui</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Non testé</span></td>
-            </tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Sécurité des données</span><button type="button" class="info-btn" aria-label="Info" title="Chiffrement">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Chiffrement + Auth</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">RGPD + ISO 27001</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Basique</span></td>
-            </tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Spécialisation IT</span><button type="button" class="info-btn" aria-label="Info" title="Focus matériel informatique">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label highlight">Oui (focus IT)</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Multi-secteurs</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Générique</span></td>
-            </tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Personnalisation</span><button type="button" class="info-btn" aria-label="Info" title="Sur mesure">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label highlight">Sur mesure</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">Limitée</span></td>
-              <td class="feature-value"><span class="cross-icon">✗</span><span class="value-label">Aucune</span></td>
-            </tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Support technique</span><button type="button" class="info-btn" aria-label="Info" title="Assistance">ℹ️</button></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Direct & Réactif</span></td>
-              <td class="feature-value"><span class="check-icon">✓</span><span class="value-label">Email + Chat</span></td>
-              <td class="feature-value"><span class="value-label">~</span><span class="value-label">FAQ uniquement</span></td>
-            </tr>
-            <tr data-category="technical">
-              <td class="feature-name"><span>Modèle tarifaire</span><button type="button" class="info-btn" aria-label="Info" title="Prix">ℹ️</button></td>
-              <td class="feature-value"><span class="value-label">Sur mesure / Licence</span></td>
-              <td class="feature-value"><span class="value-label">À partir de 185€/mois</span></td>
-              <td class="feature-value"><span class="value-label">Gratuit + Premium</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="table-legend">
-        <span class="legend-item"><span class="check-icon">✓</span> Disponible / Complet</span>
-        <span class="legend-item"><span>~</span> Partiel / Limité</span>
-        <span class="legend-item"><span class="cross-icon">✗</span> Non disponible</span>
-        <span class="legend-item"><span class="roadmap-icon">🔜</span> En développement</span>
-      </div>
-
-      <!-- 3. ANALYSE DÉTAILLÉE -->
-      <h3 class="comparative-subtitle">Analyse Détaillée</h3>
-      <div class="analysis-tabs">
-        <button type="button" class="analysis-tab active" data-competitor="timly">Timly</button>
-        <button type="button" class="analysis-tab" data-competitor="simple">Stock et Inventaire Simple</button>
-      </div>
-      <div id="analysis-timly" class="competitor-analysis active">
-        <div class="analysis-grid">
-          <div class="analysis-card strengths-card">
-            <h4 class="card-header"><span class="header-icon">💪</span> Points Forts de Timly</h4>
-            <ul class="analysis-list">
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Solution mature et éprouvée</strong><p>Plusieurs années d'existence, base utilisateurs établie</p></div></li>
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Dashboard analytique avancé</strong><p>Graphiques, rapports personnalisés, KPIs détaillés</p></div></li>
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Multi-plateforme complet</strong><p>Interface web, application mobile iOS/Android</p></div></li>
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Fonctionnalités étendues</strong><p>Gestion fournisseurs, commandes automatiques, API</p></div></li>
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Support professionnel</strong><p>Documentation complète, support réactif</p></div></li>
+            <ul class="scope-list">
+              <li>
+                <span class="check-icon">✓</span> Application mobile Android
+              </li>
+              <li>
+                <span class="check-icon">✓</span> Authentification
+                multi-utilisateurs
+              </li>
+              <li><span class="check-icon">✓</span> Gestion multi-sites</li>
+              <li><span class="check-icon">✓</span> Gestion des articles</li>
+              <li><span class="check-icon">✓</span> Gestion des mouvements</li>
+              <li><span class="check-icon">✓</span> Scan code-barres</li>
+              <li><span class="check-icon">✓</span> Synchronisation cloud</li>
+              <li><span class="check-icon">✓</span> Export CSV</li>
             </ul>
           </div>
-          <div class="analysis-card weaknesses-card">
-            <h4 class="card-header"><span class="header-icon">⚠️</span> Limites de Timly</h4>
-            <ul class="analysis-list">
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Coût récurrent élevé</strong><p>À partir de 185€/mois (2 220€/an), augmente selon fonctionnalités</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Non spécialisé IT</strong><p>Solution générique multi-secteurs, pas d'optimisation IT</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Complexité excessive</strong><p>Courbe d'apprentissage importante, trop de fonctions</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Personnalisation limitée</strong><p>Modèle SaaS rigide, peu adaptable aux besoins spécifiques</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Dépendance au cloud</strong><p>Nécessite connexion permanente, mode offline limité</p></div></li>
+          <div class="scope-card scope-out">
+            <div class="card-header">
+              <span class="header-icon">⏸️</span>
+              <h3>Hors périmètre (phase actuelle)</h3>
+            </div>
+            <ul class="scope-list">
+              <li><span class="cross-icon">○</span> Version Web</li>
+              <li>
+                <span class="cross-icon">○</span> Gestion fournisseurs avancée
+              </li>
+              <li>
+                <span class="cross-icon">○</span> Module commande automatique
+              </li>
+              <li><span class="cross-icon">○</span> Interface BI avancée</li>
             </ul>
           </div>
         </div>
-        <div class="direct-comparison">
-          <h5>Où IT-Inventory se différencie :</h5>
-          <div class="comparison-points">
-            <div class="point-card advantage"><span class="point-icon">🎯</span><h6>Spécialisation IT</h6><p>Contrairement à Timly qui est multi-secteurs, IT-Inventory est spécifiquement conçu pour le matériel informatique avec des workflows optimisés.</p></div>
-            <div class="point-card advantage"><span class="point-icon">💰</span><h6>Modèle économique flexible</h6><p>Pas d'abonnement mensuel récurrent. Licence sur mesure adaptée aux besoins réels de l'entreprise.</p></div>
-            <div class="point-card advantage"><span class="point-icon">🔧</span><h6>Personnalisation totale</h6><p>Application développée en interne, modifiable selon vos besoins spécifiques sans dépendre d'un éditeur.</p></div>
-            <div class="point-card advantage"><span class="point-icon">⚡</span><h6>Simplicité d'utilisation</h6><p>Interface épurée, focus sur l'essentiel pour une prise en main immédiate par les techniciens.</p></div>
+      </section>
+
+      <!-- Section 3: Description Fonctionnelle -->
+      <section class="content-section" id="fonctionnel">
+        <div class="section-badge">
+          <span class="badge-icon">⚙️</span
+          ><span class="badge-text">Fonctionnalités</span>
+        </div>
+        <h2 class="section-title">
+          <span class="title-number">03</span
+          ><span class="title-text">Description Fonctionnelle</span>
+        </h2>
+        <div class="features-container">
+          <div class="features-tabs">
+            <button class="tab-btn active" data-tab="auth">
+              <span class="tab-icon">🔒</span><span class="tab-text">Auth</span>
+            </button>
+            <button class="tab-btn" data-tab="dashboard">
+              <span class="tab-icon">📊</span
+              ><span class="tab-text">Dashboard</span>
+            </button>
+            <button class="tab-btn" data-tab="articles">
+              <span class="tab-icon">📦</span
+              ><span class="tab-text">Articles</span>
+            </button>
+            <button class="tab-btn" data-tab="scan">
+              <span class="tab-icon">📷</span><span class="tab-text">Scan</span>
+            </button>
+            <button class="tab-btn" data-tab="mouvements">
+              <span class="tab-icon">↕️</span
+              ><span class="tab-text">Mouvements</span>
+            </button>
+            <button class="tab-btn" data-tab="alertes">
+              <span class="tab-icon">📧</span
+              ><span class="tab-text">Alertes Email</span>
+            </button>
+            <button class="tab-btn" data-tab="autres">
+              <span class="tab-icon">⚙️</span
+              ><span class="tab-text">Autres</span>
+            </button>
+            <div class="tab-indicator"></div>
+          </div>
+          <div class="features-content">
+            <div class="feature-tab-content active" id="tab-auth">
+              <div class="feature-layout">
+                <div class="feature-text">
+                  <span class="feature-badge">Sécurité</span>
+                  <h3>Authentification et gestion des utilisateurs</h3>
+                  <div class="feature-details">
+                    <h4>Fonctionnalités attendues :</h4>
+                    <ul>
+                      <li>
+                        Connexion sécurisée par identifiant / mot de passe
+                      </li>
+                      <li>Sélection de profil utilisateur</li>
+                      <li>Gestion du site actif</li>
+                      <li>Maintien de session (« Se souvenir de moi »)</li>
+                      <li>Indicateur d'état de connexion</li>
+                    </ul>
+                  </div>
+                  <div class="feature-goal">
+                    <span class="goal-icon">🎯</span>
+                    <p>
+                      Sécuriser l'accès aux données, assurer la traçabilité,
+                      isoler les données par site.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-mockups">
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-292a031f-0f2b-4f27-8935-a7ba413922c6.png"
+                      alt="Connexion"
+                    />
+                    <p class="mockup-caption">Écran de connexion</p>
+                  </div>
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-07092974-0807-4a3c-a917-6f2e63b7d001.png"
+                      alt="Profil"
+                    />
+                    <p class="mockup-caption">Sélection de profil</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-tab-content" id="tab-dashboard">
+              <div class="feature-layout">
+                <div class="feature-text">
+                  <span class="feature-badge">Vue synthétique</span>
+                  <h3>Tableau de bord (Accueil)</h3>
+                  <p>
+                    Le tableau de bord offre une vue synthétique et
+                    opérationnelle du stock en temps réel.
+                  </p>
+                  <div class="feature-details">
+                    <h4>Indicateurs affichés :</h4>
+                    <ul>
+                      <li>Nombre total d'articles en stock</li>
+                      <li>Nombre d'alertes stock (stock faible)</li>
+                      <li>Nombre de mouvements du jour</li>
+                      <li>Bouton principal d'accès au scan</li>
+                    </ul>
+                  </div>
+                  <div class="feature-details">
+                    <h4>Actions rapides :</h4>
+                    <ul>
+                      <li>Entrée rapide (+)</li>
+                      <li>Sortie rapide (−)</li>
+                      <li>Liste des articles</li>
+                      <li>Réglages</li>
+                    </ul>
+                  </div>
+                  <div class="feature-goal">
+                    <span class="goal-icon">🎯</span>
+                    <p>
+                      Permettre une prise de décision rapide et une vision
+                      immédiate de la situation du stock.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-mockups">
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-34c8516d-a558-4bdc-ac76-1666de64a2de.png"
+                      alt="Tableau de bord IT-Inventory"
+                    />
+                    <p class="mockup-caption">Tableau de bord</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-tab-content" id="tab-articles">
+              <div class="feature-layout">
+                <div class="feature-text">
+                  <span class="feature-badge">Catalogue</span>
+                  <h3>Gestion des articles</h3>
+                  <p>
+                    <strong>Consultation :</strong> Liste, recherche, filtres,
+                    tri A-Z, indicateur stock faible.
+                  </p>
+                  <p>
+                    <strong>Fiche article :</strong> Référence, famille, marque,
+                    type, emplacement, stock actuel/minimum, historique.
+                  </p>
+                  <p>
+                    <strong>Actions :</strong> Entrée, sortie, ajustement,
+                    transfert inter-site, modification, export.
+                  </p>
+                </div>
+                <div class="feature-mockups">
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-354755b8-4e27-418c-bc18-0e328df1a707.png"
+                      alt="Articles"
+                    />
+                    <p class="mockup-caption">Liste des articles</p>
+                  </div>
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-70bc7db2-e262-4984-9d72-956cbdaf9d0b.png"
+                      alt="Fiche article"
+                    />
+                    <p class="mockup-caption">Fiche article</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-tab-content" id="tab-scan">
+              <div class="feature-layout">
+                <div class="feature-text">
+                  <span class="feature-badge">Rapidité</span>
+                  <h3>Scan Code-Barres</h3>
+                  <p>
+                    Scan via caméra mobile, compatibilité scanner externe, accès
+                    automatique à la fiche article.
+                  </p>
+                  <div class="feature-goal">
+                    <span class="goal-icon">🎯</span>
+                    <p>
+                      Réduire les erreurs de saisie, accélérer les opérations,
+                      simplifier les inventaires.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-mockups">
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-d060235a-4328-4e79-94f2-9931ca734cde.png"
+                      alt="Scanner"
+                    />
+                    <p class="mockup-caption">Scanner code-barres</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-tab-content" id="tab-mouvements">
+              <div class="feature-layout">
+                <div class="feature-text">
+                  <span class="feature-badge">Traçabilité</span>
+                  <h3>Gestion des mouvements</h3>
+                  <p>
+                    <strong>Types :</strong> Entrée (+), Sortie (-), Ajustement,
+                    Transfert.
+                  </p>
+                  <p>
+                    <strong>Informations :</strong> Article, quantité,
+                    date/heure, utilisateur, type d'opération.
+                  </p>
+                  <p>
+                    <strong>Interface :</strong> Filtre par type, timeline,
+                    statistiques journalières.
+                  </p>
+                </div>
+                <div class="feature-mockups">
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-0c89b1ce-cccc-4696-a63e-82160cae376e.png"
+                      alt="Mouvements"
+                    />
+                    <p class="mockup-caption">Mouvements</p>
+                  </div>
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-f7d1ddef-2bc2-49c1-937b-bc21525b5067.png"
+                      alt="Historique"
+                    />
+                    <p class="mockup-caption">Historique & Export</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-tab-content" id="tab-alertes">
+              <div class="feature-layout">
+                <div class="feature-text">
+                  <span
+                    class="feature-badge"
+                    style="
+                      background: rgba(245, 158, 11, 0.15);
+                      color: #fbbf24;
+                      border-color: rgba(245, 158, 11, 0.3);
+                    "
+                    >📧 Notification</span
+                  >
+                  <h3>Alerte stock par email</h3>
+                  <div class="feature-details">
+                    <h4>Fonctionnement :</h4>
+                    <ul>
+                      <li>Détection automatique si stock ≤ stock minimum</li>
+                      <li>
+                        Envoi d'un email récapitulatif au responsable du site
+                      </li>
+                      <li>
+                        Tableau détaillé : article, référence, emplacement,
+                        stock actuel, stock minimum, statut
+                      </li>
+                      <li>Indication du site concerné et horodatage</li>
+                    </ul>
+                  </div>
+                  <div class="feature-details">
+                    <h4>📅 Récapitulatif quotidien automatique :</h4>
+                    <ul>
+                      <li>
+                        <strong>Envoi automatique chaque jour à 6h00</strong>
+                        d'un rapport complet
+                      </li>
+                      <li>
+                        Liste de
+                        <strong>tous les articles en faible quantité</strong>
+                        (stock ≤ stock minimum)
+                      </li>
+                      <li>
+                        Rapport organisé par site avec indicateurs : articles en
+                        alerte, en rupture totale, stock bas
+                      </li>
+                      <li>
+                        Tableau récapitulatif incluant : article, référence,
+                        emplacement, stock actuel, stock minimum, statut
+                      </li>
+                      <li>
+                        Permet au responsable d'avoir une
+                        <strong>vision globale dès le début de journée</strong>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="feature-goal">
+                    <span class="goal-icon">🎯</span>
+                    <p>
+                      Anticiper les ruptures de stock et alerter le responsable
+                      en temps réel sans ouvrir l'application. Le récapitulatif
+                      quotidien à 6h00 garantit une visibilité complète dès la
+                      prise de poste.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-mockups">
+                  <div class="email-alert-preview" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-cf6fa4a8-44c2-45d6-89fb-6cd012b9aabf.png"
+                      alt="Alerte Stock par email"
+                    />
+                    <p class="mockup-caption">
+                      Exemple d'email d'alerte stock reçu par le responsable
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-tab-content" id="tab-autres">
+              <div class="feature-layout">
+                <div class="feature-text">
+                  <h3>Alertes, Sync & Export</h3>
+                  <p>
+                    <strong>3.6 Alertes stock :</strong> Détection automatique
+                    si stock ≤ stock minimum. Indicateur visuel dans la liste
+                    articles et le tableau de bord.
+                  </p>
+                  <p>
+                    <strong>3.7 Synchronisation :</strong> Base de données sur
+                    le réseau entreprise, indicateur d'état, sync manuelle,
+                    données en attente.
+                  </p>
+                  <p>
+                    <strong>3.8 Export :</strong> CSV (fiche article +
+                    historique des mouvements), enregistré sur le téléphone,
+                    exploitation Excel.
+                  </p>
+                </div>
+                <div class="feature-mockups">
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-3510ff32-b203-4a37-bb0b-c05c9c78cb5f.png"
+                      alt="Réglages"
+                    />
+                    <p class="mockup-caption">Réglages & Site actif</p>
+                  </div>
+                  <div class="mockup-card" data-lightbox>
+                    <img
+                      src="assets/c__Users_flori_AppData_Roaming_Cursor_User_workspaceStorage_2e0352ff860089be4ada9f9e57222bcc_images_image-510b4253-026b-4734-91f5-cc59b1fa5b93.png"
+                      alt="Export CSV"
+                    />
+                    <p class="mockup-caption">Export CSV</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div id="analysis-simple" class="competitor-analysis">
-        <div class="analysis-grid">
-          <div class="analysis-card strengths-card">
-            <h4 class="card-header"><span class="header-icon">💪</span> Points Forts de Stock et Inventaire Simple</h4>
-            <ul class="analysis-list">
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Simplicité extrême</strong><p>Interface minimaliste, prise en main en quelques minutes</p></div></li>
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Gratuité</strong><p>Version de base gratuite, faible coût pour Premium</p></div></li>
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Mode offline complet</strong><p>Fonctionne totalement sans connexion internet</p></div></li>
-              <li class="list-item"><span class="item-icon">✓</span><div class="item-content"><strong>Léger et rapide</strong><p>Application peu gourmande, performante sur tout hardware</p></div></li>
+      </section>
+
+      <!-- Section 3.9: Analyse Comparative du Marché -->
+      <section class="content-section" id="comparatif">
+        <div class="section-badge">
+          <span class="badge-icon">⚖️</span
+          ><span class="badge-text">Analyse Comparative</span>
+        </div>
+        <h2 class="section-title">
+          <span class="title-number">3.9</span
+          ><span class="title-text">IT-Inventory face à la Concurrence</span>
+        </h2>
+        <p class="comparative-intro">
+          IT-Inventory se positionne comme une solution moderne et complète face
+          aux acteurs établis du marché. Voici une analyse objective des
+          fonctionnalités, avantages et limites par rapport à Timly et Stock et
+          Inventaire Simple.
+        </p>
+
+        <!-- 1. VUE D'ENSEMBLE (CARTES CONCURRENTS) -->
+        <h3 class="comparative-subtitle">Acteurs du Marché</h3>
+        <div class="competitors-grid">
+          <div class="competitor-card stockpro-card featured">
+            <span class="card-badge">Notre Solution</span>
+            <div class="card-logo">
+              <span class="logo-icon">📦</span>
+              <span class="logo-text">IT-Inventory</span>
+            </div>
+            <p class="card-tagline">
+              Solution mobile moderne spécialisée pour le stock IT
+            </p>
+            <div class="card-stats">
+              <span class="stat-item">📱 Mobile First</span>
+              <span class="stat-item">🔧 IT Focused</span>
+              <span class="stat-item">☁️ Cloud Native</span>
+            </div>
+            <div class="card-price">
+              <span class="price-label">Modèle</span>
+              <span class="price-value">Sur mesure</span>
+            </div>
+          </div>
+          <div class="competitor-card">
+            <div class="card-logo">
+              <span class="logo-icon">⏱️</span>
+              <span class="logo-text">Timly</span>
+            </div>
+            <p class="card-tagline">
+              Plateforme SaaS complète de gestion d'équipements
+            </p>
+            <div class="card-stats">
+              <span class="stat-item">🌐 Web + Mobile</span>
+              <span class="stat-item">📊 Multi-industries</span>
+              <span class="stat-item">👥 Multi-users</span>
+            </div>
+            <div class="card-price">
+              <span class="price-label">À partir de</span>
+              <span class="price-value">185€/mois (2 220€/an)</span>
+            </div>
+            <a
+              href="https://timly.com"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+              >Voir le site →</a
+            >
+          </div>
+          <div class="competitor-card">
+            <div class="card-logo">
+              <span class="logo-icon">📋</span>
+              <span class="logo-text">Stock et Inventaire Simple</span>
+            </div>
+            <p class="card-tagline">
+              Application mobile légère pour gestion de stock basique
+            </p>
+            <div class="card-stats">
+              <span class="stat-item">📱 Mobile Only</span>
+              <span class="stat-item">💡 Simplicité</span>
+              <span class="stat-item">📴 Offline</span>
+            </div>
+            <div class="card-price">
+              <span class="price-label">Modèle</span>
+              <span class="price-value">Gratuit + Premium</span>
+            </div>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.simpleinventory"
+              target="_blank"
+              rel="noopener"
+              class="card-link"
+              >Google Play Store →</a
+            >
+          </div>
+        </div>
+
+        <!-- 2. TABLEAU COMPARATIF -->
+        <h3 class="comparative-subtitle">Comparatif des Fonctionnalités</h3>
+        <div class="table-filters">
+          <button type="button" class="filter-btn active" data-category="all">
+            Toutes les fonctionnalités
+          </button>
+          <button type="button" class="filter-btn" data-category="base">
+            Fonctions de base
+          </button>
+          <button type="button" class="filter-btn" data-category="advanced">
+            Fonctions avancées
+          </button>
+          <button type="button" class="filter-btn" data-category="technical">
+            Aspects techniques
+          </button>
+        </div>
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th class="feature-column">Fonctionnalité</th>
+                <th class="app-column stockpro-column">
+                  <div class="column-header">
+                    <span class="app-icon">📦</span
+                    ><span class="app-name">IT-Inventory</span>
+                  </div>
+                </th>
+                <th class="app-column">
+                  <div class="column-header">
+                    <span class="app-icon">⏱️</span
+                    ><span class="app-name">Timly</span>
+                  </div>
+                </th>
+                <th class="app-column">
+                  <div class="column-header">
+                    <span class="app-icon">📋</span
+                    ><span class="app-name">Inventaire Simple</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="category-row">
+                <td colspan="4">
+                  <div class="category-header">📦 Gestion de Base</div>
+                </td>
+              </tr>
+              <tr data-category="base">
+                <td class="feature-name">
+                  <span>Gestion des articles</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Liste, recherche, filtres, tri"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Complète</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Complète</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Basique</span>
+                </td>
+              </tr>
+              <tr data-category="base">
+                <td class="feature-name">
+                  <span>Scan code-barres</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Caméra ou scanner externe"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label highlight"
+                    >Natif + Scanner externe</span
+                  >
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Natif uniquement</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Natif uniquement</span>
+                </td>
+              </tr>
+              <tr data-category="base">
+                <td class="feature-name">
+                  <span>Gestion multi-sites</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Plusieurs emplacements"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label highlight">Natif</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Premium</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Non disponible</span>
+                </td>
+              </tr>
+              <tr data-category="base">
+                <td class="feature-name">
+                  <span>Alertes de stock faible</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Détection automatique"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Automatique</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Automatique</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Manuel</span>
+                </td>
+              </tr>
+              <tr data-category="base">
+                <td class="feature-name">
+                  <span>Historique des mouvements</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Traçabilité complète"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Complet + Export</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Complet</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Limité</span>
+                </td>
+              </tr>
+              <tr class="category-row">
+                <td colspan="4">
+                  <div class="category-header">⚡ Fonctionnalités Avancées</div>
+                </td>
+              </tr>
+              <tr data-category="advanced">
+                <td class="feature-name">
+                  <span>Authentification multi-utilisateurs</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Profils et rôles"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Natif + Profils</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Natif + Rôles</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Non</span>
+                </td>
+              </tr>
+              <tr data-category="advanced">
+                <td class="feature-name">
+                  <span>Synchronisation cloud</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Base de données"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label highlight"
+                    >Temps réel (réseau entreprise)</span
+                  >
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Temps réel</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Export manuel</span>
+                </td>
+              </tr>
+              <tr data-category="advanced">
+                <td class="feature-name">
+                  <span>Export de données</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="CSV, Excel"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">CSV</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">CSV, Excel, PDF</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">CSV</span>
+                </td>
+              </tr>
+              <tr data-category="advanced">
+                <td class="feature-name">
+                  <span>Dashboard analytique</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Graphiques et KPIs"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Basique (KPIs)</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Avancé (Graphiques)</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Non</span>
+                </td>
+              </tr>
+              <tr data-category="advanced">
+                <td class="feature-name">
+                  <span>Gestion des fournisseurs</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Catalogues fournisseurs"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="roadmap-icon">🔜</span
+                  ><span class="value-label">Roadmap</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Complet</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Non</span>
+                </td>
+              </tr>
+              <tr data-category="advanced">
+                <td class="feature-name">
+                  <span>Commandes automatiques</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Réapprovisionnement"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="roadmap-icon">🔜</span
+                  ><span class="value-label">Roadmap</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Oui</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Non</span>
+                </td>
+              </tr>
+              <tr data-category="advanced">
+                <td class="feature-name">
+                  <span>API / Intégrations tierces</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Webhooks, REST"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="roadmap-icon">🔜</span
+                  ><span class="value-label">Roadmap</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">API REST complète</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Non</span>
+                </td>
+              </tr>
+              <tr class="category-row">
+                <td colspan="4">
+                  <div class="category-header">🔧 Aspects Techniques</div>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Plateforme</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="OS supportés"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">Android natif</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">Web + iOS + Android</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">iOS + Android</span>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Mode hors ligne</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Sans connexion"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Partiel (sync auto)</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Complet</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Complet</span>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Compatible matériel durci</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Zebra, etc."
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label highlight">Oui (Zebra TC22)</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Oui</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Non testé</span>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Sécurité des données</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Chiffrement"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Chiffrement + Auth</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">RGPD + ISO 27001</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Basique</span>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Spécialisation IT</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Focus matériel informatique"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label highlight">Oui (focus IT)</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Multi-secteurs</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Générique</span>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Personnalisation</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Sur mesure"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label highlight">Sur mesure</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">Limitée</span>
+                </td>
+                <td class="feature-value">
+                  <span class="cross-icon">✗</span
+                  ><span class="value-label">Aucune</span>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Support technique</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Assistance"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Direct & Réactif</span>
+                </td>
+                <td class="feature-value">
+                  <span class="check-icon">✓</span
+                  ><span class="value-label">Email + Chat</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">~</span
+                  ><span class="value-label">FAQ uniquement</span>
+                </td>
+              </tr>
+              <tr data-category="technical">
+                <td class="feature-name">
+                  <span>Modèle tarifaire</span
+                  ><button
+                    type="button"
+                    class="info-btn"
+                    aria-label="Info"
+                    title="Prix"
+                  >
+                    ℹ️
+                  </button>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">Sur mesure / Licence</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">À partir de 185€/mois</span>
+                </td>
+                <td class="feature-value">
+                  <span class="value-label">Gratuit + Premium</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-legend">
+          <span class="legend-item"
+            ><span class="check-icon">✓</span> Disponible / Complet</span
+          >
+          <span class="legend-item"><span>~</span> Partiel / Limité</span>
+          <span class="legend-item"
+            ><span class="cross-icon">✗</span> Non disponible</span
+          >
+          <span class="legend-item"
+            ><span class="roadmap-icon">🔜</span> En développement</span
+          >
+        </div>
+
+        <!-- 3. ANALYSE DÉTAILLÉE -->
+        <h3 class="comparative-subtitle">Analyse Détaillée</h3>
+        <div class="analysis-tabs">
+          <button
+            type="button"
+            class="analysis-tab active"
+            data-competitor="timly"
+          >
+            Timly
+          </button>
+          <button type="button" class="analysis-tab" data-competitor="simple">
+            Stock et Inventaire Simple
+          </button>
+        </div>
+        <div id="analysis-timly" class="competitor-analysis active">
+          <div class="analysis-grid">
+            <div class="analysis-card strengths-card">
+              <h4 class="card-header">
+                <span class="header-icon">💪</span> Points Forts de Timly
+              </h4>
+              <ul class="analysis-list">
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Solution mature et éprouvée</strong>
+                    <p>
+                      Plusieurs années d'existence, base utilisateurs établie
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Dashboard analytique avancé</strong>
+                    <p>Graphiques, rapports personnalisés, KPIs détaillés</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Multi-plateforme complet</strong>
+                    <p>Interface web, application mobile iOS/Android</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Fonctionnalités étendues</strong>
+                    <p>Gestion fournisseurs, commandes automatiques, API</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Support professionnel</strong>
+                    <p>Documentation complète, support réactif</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="analysis-card weaknesses-card">
+              <h4 class="card-header">
+                <span class="header-icon">⚠️</span> Limites de Timly
+              </h4>
+              <ul class="analysis-list">
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Coût récurrent élevé</strong>
+                    <p>
+                      À partir de 185€/mois (2 220€/an), augmente selon
+                      fonctionnalités
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Non spécialisé IT</strong>
+                    <p>
+                      Solution générique multi-secteurs, pas d'optimisation IT
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Complexité excessive</strong>
+                    <p>Courbe d'apprentissage importante, trop de fonctions</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Personnalisation limitée</strong>
+                    <p>
+                      Modèle SaaS rigide, peu adaptable aux besoins spécifiques
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Dépendance au cloud</strong>
+                    <p>Nécessite connexion permanente, mode offline limité</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="direct-comparison">
+            <h5>Où IT-Inventory se différencie :</h5>
+            <div class="comparison-points">
+              <div class="point-card advantage">
+                <span class="point-icon">🎯</span>
+                <h6>Spécialisation IT</h6>
+                <p>
+                  Contrairement à Timly qui est multi-secteurs, IT-Inventory est
+                  spécifiquement conçu pour le matériel informatique avec des
+                  workflows optimisés.
+                </p>
+              </div>
+              <div class="point-card advantage">
+                <span class="point-icon">💰</span>
+                <h6>Modèle économique flexible</h6>
+                <p>
+                  Pas d'abonnement mensuel récurrent. Licence sur mesure adaptée
+                  aux besoins réels de l'entreprise.
+                </p>
+              </div>
+              <div class="point-card advantage">
+                <span class="point-icon">🔧</span>
+                <h6>Personnalisation totale</h6>
+                <p>
+                  Application développée en interne, modifiable selon vos
+                  besoins spécifiques sans dépendre d'un éditeur.
+                </p>
+              </div>
+              <div class="point-card advantage">
+                <span class="point-icon">⚡</span>
+                <h6>Simplicité d'utilisation</h6>
+                <p>
+                  Interface épurée, focus sur l'essentiel pour une prise en main
+                  immédiate par les techniciens.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="analysis-simple" class="competitor-analysis">
+          <div class="analysis-grid">
+            <div class="analysis-card strengths-card">
+              <h4 class="card-header">
+                <span class="header-icon">💪</span> Points Forts de Stock et
+                Inventaire Simple
+              </h4>
+              <ul class="analysis-list">
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Simplicité extrême</strong>
+                    <p>
+                      Interface minimaliste, prise en main en quelques minutes
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Gratuité</strong>
+                    <p>Version de base gratuite, faible coût pour Premium</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Mode offline complet</strong>
+                    <p>Fonctionne totalement sans connexion internet</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✓</span>
+                  <div class="item-content">
+                    <strong>Léger et rapide</strong>
+                    <p>
+                      Application peu gourmande, performante sur tout hardware
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="analysis-card weaknesses-card">
+              <h4 class="card-header">
+                <span class="header-icon">⚠️</span> Limites de Stock et
+                Inventaire Simple
+              </h4>
+              <ul class="analysis-list">
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Fonctionnalités très limitées</strong>
+                    <p>
+                      Pas de multi-utilisateurs, pas de multi-sites, basique
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Aucune synchronisation cloud</strong>
+                    <p>
+                      Export/import manuel uniquement, pas de sauvegarde auto
+                    </p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Pas de traçabilité avancée</strong>
+                    <p>Historique limité, pas de suivi par utilisateur</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Non adapté aux environnements pros</strong>
+                    <p>Pas de gestion de permissions, sécurité basique</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Évolutions incertaines</strong>
+                    <p>Application individuelle, pas de roadmap claire</p>
+                  </div>
+                </li>
+                <li class="list-item">
+                  <span class="item-icon">✗</span>
+                  <div class="item-content">
+                    <strong>Support inexistant</strong>
+                    <p>Pas d'assistance technique, documentation minimale</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="direct-comparison">
+            <h5>Où IT-Inventory se différencie :</h5>
+            <div class="comparison-points">
+              <div class="point-card advantage">
+                <span class="point-icon">👥</span>
+                <h6>Multi-utilisateurs natif</h6>
+                <p>
+                  Gestion complète des utilisateurs avec authentification,
+                  profils et traçabilité des opérations par personne.
+                </p>
+              </div>
+              <div class="point-card advantage">
+                <span class="point-icon">☁️</span>
+                <h6>Synchronisation cloud temps réel</h6>
+                <p>
+                  Sauvegarde automatique sur base réseau entreprise, accès
+                  depuis plusieurs terminaux avec sécurité garantie.
+                </p>
+              </div>
+              <div class="point-card advantage">
+                <span class="point-icon">🏢</span>
+                <h6>Gestion multi-sites</h6>
+                <p>
+                  Parfait pour les entreprises avec plusieurs emplacements,
+                  transferts inter-sites facilités.
+                </p>
+              </div>
+              <div class="point-card advantage">
+                <span class="point-icon">📊</span>
+                <h6>Fonctionnalités professionnelles</h6>
+                <p>
+                  Dashboard avec KPIs, alertes automatiques, export CSV,
+                  historique complet des mouvements.
+                </p>
+              </div>
+              <div class="point-card advantage">
+                <span class="point-icon">🛠️</span>
+                <h6>Support et évolution</h6>
+                <p>
+                  Application maintenue et évoluée selon vos besoins, support
+                  technique direct, roadmap claire.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. MATRICE DE POSITIONNEMENT -->
+        <h3 class="comparative-subtitle">Positionnement sur le Marché</h3>
+        <p class="matrix-intro">
+          Visualisation du positionnement de chaque solution selon deux axes :
+          <strong>Spécialisation IT</strong> (horizontal) et
+          <strong>Sophistication des Fonctionnalités</strong> (vertical).
+        </p>
+        <div class="matrix-visual">
+          <!-- 3 colonnes : une carte par solution -->
+          <div class="matrix-card matrix-card-stockpro">
+            <div class="matrix-card-glow"></div>
+            <div class="matrix-card-badge">Leader Spécialisé</div>
+            <div class="matrix-card-icon">📦</div>
+            <h4 class="matrix-card-name">IT-Inventory</h4>
+            <p class="matrix-card-pos">Spécialisé IT + Fonctionnalités Pro</p>
+            <div class="matrix-card-bars">
+              <div class="bar-row">
+                <span class="bar-label">Spécialisation IT</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-sp" style="width: 95%"></div>
+                </div>
+                <span class="bar-val">95%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Fonctionnalités</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-sp" style="width: 75%"></div>
+                </div>
+                <span class="bar-val">75%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Simplicité</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-sp" style="width: 90%"></div>
+                </div>
+                <span class="bar-val">90%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Coût</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-sp" style="width: 85%"></div>
+                </div>
+                <span class="bar-val">Flexible</span>
+              </div>
+            </div>
+          </div>
+          <div class="matrix-card matrix-card-timly">
+            <div class="matrix-card-badge">Leader Généraliste</div>
+            <div class="matrix-card-icon">⏱️</div>
+            <h4 class="matrix-card-name">Timly</h4>
+            <p class="matrix-card-pos">Généraliste + Très avancé</p>
+            <div class="matrix-card-bars">
+              <div class="bar-row">
+                <span class="bar-label">Spécialisation IT</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-timly" style="width: 30%"></div>
+                </div>
+                <span class="bar-val">30%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Fonctionnalités</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-timly" style="width: 95%"></div>
+                </div>
+                <span class="bar-val">95%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Simplicité</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-timly" style="width: 40%"></div>
+                </div>
+                <span class="bar-val">40%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Coût</span>
+                <div class="bar-track">
+                  <div class="bar-fill bar-fill-timly" style="width: 30%"></div>
+                </div>
+                <span class="bar-val">185€/mois</span>
+              </div>
+            </div>
+          </div>
+          <div class="matrix-card matrix-card-simple">
+            <div class="matrix-card-badge">Niche Basique</div>
+            <div class="matrix-card-icon">📋</div>
+            <h4 class="matrix-card-name">Inventaire Simple</h4>
+            <p class="matrix-card-pos">Généraliste + Basique</p>
+            <div class="matrix-card-bars">
+              <div class="bar-row">
+                <span class="bar-label">Spécialisation IT</span>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill bar-fill-simple"
+                    style="width: 10%"
+                  ></div>
+                </div>
+                <span class="bar-val">10%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Fonctionnalités</span>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill bar-fill-simple"
+                    style="width: 25%"
+                  ></div>
+                </div>
+                <span class="bar-val">25%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Simplicité</span>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill bar-fill-simple"
+                    style="width: 95%"
+                  ></div>
+                </div>
+                <span class="bar-val">95%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Coût</span>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill bar-fill-simple"
+                    style="width: 95%"
+                  ></div>
+                </div>
+                <span class="bar-val">Gratuit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="matrix-legend">
+          <div class="legend-section">
+            <h5>📦 IT-Inventory - Quadrant "Leader Spécialisé"</h5>
+            <p>
+              Positionnement optimal : Haute spécialisation IT avec
+              fonctionnalités professionnelles. IT-Inventory offre le meilleur
+              équilibre pour une entreprise IT recherchant une solution
+              sur-mesure sans complexité excessive.
+            </p>
+          </div>
+          <div class="legend-section">
+            <h5>⏱️ Timly - Quadrant "Leader Généraliste"</h5>
+            <p>
+              Solution complète mais non spécialisée. Excellente pour
+              multi-secteurs mais avec complexité et coûts supérieurs pour un
+              usage IT pur.
+            </p>
+          </div>
+          <div class="legend-section">
+            <h5>📋 Inventaire Simple - Quadrant "Niche Basique"</h5>
+            <p>
+              Très accessible mais limité en fonctionnalités. Adapté aux très
+              petites structures ou usages personnels, inadapté aux
+              environnements professionnels.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. SYNTHÈSE DES AVANTAGES -->
+        <h3 class="comparative-subtitle">Pourquoi Choisir IT-Inventory ?</h3>
+        <div class="advantages-hero">
+          <p class="hero-text">
+            IT-Inventory combine le meilleur des deux mondes :
+            <span class="highlight">la spécialisation IT</span> de solutions
+            nichées avec
+            <span class="highlight">les fonctionnalités professionnelles</span>
+            des plateformes complètes, tout en évitant leur complexité et leurs
+            coûts récurrents.
+          </p>
+        </div>
+        <div class="advantages-grid">
+          <div class="advantage-card">
+            <span class="card-number">01</span><span class="card-icon">🎯</span>
+            <h4>Spécialisation IT</h4>
+            <p>
+              Conçu spécifiquement pour le stock informatique avec des workflows
+              optimisés, des catégories adaptées et une ergonomie pensée pour
+              les techniciens IT.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Timly :</span
+              ><span class="vs-text">Généraliste multi-secteurs</span>
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">02</span><span class="card-icon">💰</span>
+            <h4>Modèle Économique Flexible</h4>
+            <p>
+              Pas d'abonnement mensuel récurrent. Solution sur-mesure avec
+              licence adaptée à vos besoins réels sans frais cachés ni
+              augmentations surprises.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Timly :</span
+              ><span class="vs-text">À partir de 185€/mois (2 220€/an)</span>
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">03</span><span class="card-icon">🔧</span>
+            <h4>Personnalisation Totale</h4>
+            <p>
+              Application développée en interne, entièrement modifiable et
+              extensible selon vos besoins spécifiques. Vous gardez le contrôle
+              total.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Timly :</span
+              ><span class="vs-text">Personnalisation limitée (SaaS)</span>
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">04</span><span class="card-icon">👥</span>
+            <h4>Multi-Utilisateurs Natif</h4>
+            <p>
+              Authentification sécurisée, gestion de profils, traçabilité
+              complète des opérations par utilisateur dès la version de base.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Inventaire Simple :</span
+              ><span class="vs-text">Mono-utilisateur</span>
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">05</span><span class="card-icon">☁️</span>
+            <h4>Cloud Moderne & Sécurisé</h4>
+            <p>
+              Synchronisation temps réel avec la base réseau entreprise,
+              sauvegarde automatique, accès depuis plusieurs terminaux avec
+              sécurité renforcée.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Inventaire Simple :</span
+              ><span class="vs-text">Export/import manuel uniquement</span>
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">06</span><span class="card-icon">🏢</span>
+            <h4>Multi-Sites Intégré</h4>
+            <p>
+              Gestion native de plusieurs emplacements avec transferts
+              inter-sites, vue consolidée et séparation des données par site.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Inventaire Simple :</span
+              ><span class="vs-text">Non disponible</span>
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">07</span><span class="card-icon">⚡</span>
+            <h4>Simplicité d'Utilisation</h4>
+            <p>
+              Interface épurée et intuitive, focus sur l'essentiel, prise en
+              main immédiate sans formation longue ni courbe d'apprentissage
+              complexe.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Timly :</span
+              ><span class="vs-text"
+                >Interface chargée, formation nécessaire</span
+              >
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">08</span><span class="card-icon">📱</span>
+            <h4>Mobile First</h4>
+            <p>
+              Application native Android optimisée pour terminaux durcis (Zebra
+              TC22), scan code-barres natif et externe, ergonomie terrain.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Timly :</span
+              ><span class="vs-text">Web-first, app mobile secondaire</span>
+            </div>
+          </div>
+          <div class="advantage-card">
+            <span class="card-number">09</span><span class="card-icon">🛠️</span>
+            <h4>Support Direct & Évolutions</h4>
+            <p>
+              Assistance technique directe, évolutions continues selon vos
+              retours, roadmap claire et transparente adaptée à vos besoins
+              métier.
+            </p>
+            <div class="card-comparison">
+              <span class="vs-label">vs Inventaire Simple :</span
+              ><span class="vs-text">Aucun support</span>
+            </div>
+          </div>
+        </div>
+        <div class="advantages-cta">
+          <div class="cta-content">
+            <h4>
+              IT-Inventory : La Solution Idéale pour la Gestion de Stock IT
+            </h4>
+            <p>
+              Une application moderne, spécialisée et professionnelle, sans les
+              inconvénients des solutions généralistes ou basiques.
+            </p>
+            <div class="cta-stats">
+              <div class="stat">
+                <span class="stat-value">100%</span
+                ><span class="stat-label">Spécialisé IT</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">0€</span
+                ><span class="stat-label">Abonnement mensuel</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">✓</span
+                ><span class="stat-label">Sur-mesure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Architecture Technique -->
+      <section class="content-section" id="technique">
+        <div class="section-badge">
+          <span class="badge-icon">🔧</span
+          ><span class="badge-text">Stack</span>
+        </div>
+        <h2 class="section-title">
+          <span class="title-number">04</span
+          ><span class="title-text">Architecture Technique</span>
+        </h2>
+        <div class="arch-stack">
+          <!-- Frontend -->
+          <div class="arch-card arch-frontend">
+            <div class="arch-card-accent"></div>
+            <div class="arch-card-header">
+              <div class="arch-icon-wrap arch-icon-frontend">📱</div>
+              <div>
+                <h4 class="arch-card-title">Frontend</h4>
+                <p class="arch-card-sub">Interface utilisateur mobile</p>
+              </div>
+            </div>
+            <div class="arch-tags">
+              <span class="arch-tag">Application Android</span>
+              <span class="arch-tag">Android 16</span>
+              <span class="arch-tag arch-tag-accent"
+                >React Native / TypeScript</span
+              >
+              <span class="arch-tag">Smartphone Android / iOS</span>
+            </div>
+          </div>
+          <!-- Connecteur -->
+          <div class="arch-flow">
+            <div class="arch-flow-line"></div>
+            <span class="arch-flow-label">API REST / Sync</span>
+            <div class="arch-flow-line"></div>
+          </div>
+          <!-- Backend -->
+          <div class="arch-card arch-backend">
+            <div class="arch-card-accent"></div>
+            <div class="arch-card-header">
+              <div class="arch-icon-wrap arch-icon-backend">🏢</div>
+              <div>
+                <h4 class="arch-card-title">Backend</h4>
+                <p class="arch-card-sub">Serveur et logique métier</p>
+              </div>
+            </div>
+            <div class="arch-tags">
+              <span class="arch-tag">Base de données réseau entreprise</span>
+              <span class="arch-tag arch-tag-accent">PostgreSQL</span>
+              <span class="arch-tag">Authentification sécurisée</span>
+              <span class="arch-tag">Synchronisation temps réel</span>
+            </div>
+          </div>
+          <!-- Connecteur -->
+          <div class="arch-flow">
+            <div class="arch-flow-line"></div>
+            <span class="arch-flow-label">ORM / Requêtes SQL</span>
+            <div class="arch-flow-line"></div>
+          </div>
+          <!-- Data -->
+          <div class="arch-card arch-data">
+            <div class="arch-card-accent"></div>
+            <div class="arch-card-header">
+              <div class="arch-icon-wrap arch-icon-data">🗄️</div>
+              <div>
+                <h4 class="arch-card-title">Modèle de données</h4>
+                <p class="arch-card-sub">6 tables principales</p>
+              </div>
+            </div>
+            <div class="arch-db-grid">
+              <div class="arch-db-table">
+                <span class="db-icon">👤</span
+                ><span class="db-name">Users</span>
+              </div>
+              <div class="arch-db-table">
+                <span class="db-icon">🏢</span
+                ><span class="db-name">Sites</span>
+              </div>
+              <div class="arch-db-table">
+                <span class="db-icon">📦</span
+                ><span class="db-name">Articles</span>
+              </div>
+              <div class="arch-db-table">
+                <span class="db-icon">🔄</span
+                ><span class="db-name">Movements</span>
+              </div>
+              <div class="arch-db-table">
+                <span class="db-icon">🏷️</span
+                ><span class="db-name">Categories</span>
+              </div>
+              <div class="arch-db-table">
+                <span class="db-icon">📍</span
+                ><span class="db-name">Locations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Exigences & Sécurité -->
+      <section class="content-section" id="exigences">
+        <div class="section-badge">
+          <span class="badge-icon">⚡</span
+          ><span class="badge-text">Performance</span>
+        </div>
+        <h2 class="section-title">
+          <span class="title-number">05</span
+          ><span class="title-text">Exigences & Sécurité</span>
+        </h2>
+
+        <!-- Exigences techniques -->
+        <div class="req-grid">
+          <div class="req-card req-perf">
+            <div class="req-card-top">
+              <div class="req-icon-box req-icon-perf">⚡</div>
+              <span class="req-badge req-badge-perf">Critique</span>
+            </div>
+            <h4 class="req-title">Performance</h4>
+            <p class="req-desc">
+              Temps de réponse inférieur à 2 secondes pour toute opération
+            </p>
+            <ul class="req-specs">
+              <li>
+                <span class="req-dot req-dot-perf"></span>Chargement écran &lt;
+                1.5s
+              </li>
+              <li>
+                <span class="req-dot req-dot-perf"></span>Scan instantané (&lt;
+                500ms)
+              </li>
+              <li>
+                <span class="req-dot req-dot-perf"></span>Synchronisation en
+                arrière-plan
+              </li>
             </ul>
           </div>
-          <div class="analysis-card weaknesses-card">
-            <h4 class="card-header"><span class="header-icon">⚠️</span> Limites de Stock et Inventaire Simple</h4>
-            <ul class="analysis-list">
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Fonctionnalités très limitées</strong><p>Pas de multi-utilisateurs, pas de multi-sites, basique</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Aucune synchronisation cloud</strong><p>Export/import manuel uniquement, pas de sauvegarde auto</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Pas de traçabilité avancée</strong><p>Historique limité, pas de suivi par utilisateur</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Non adapté aux environnements pros</strong><p>Pas de gestion de permissions, sécurité basique</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Évolutions incertaines</strong><p>Application individuelle, pas de roadmap claire</p></div></li>
-              <li class="list-item"><span class="item-icon">✗</span><div class="item-content"><strong>Support inexistant</strong><p>Pas d'assistance technique, documentation minimale</p></div></li>
+          <div class="req-card req-ui">
+            <div class="req-card-top">
+              <div class="req-icon-box req-icon-ui">🎨</div>
+              <span class="req-badge req-badge-ui">UX/UI</span>
+            </div>
+            <h4 class="req-title">Interface</h4>
+            <p class="req-desc">
+              Design intuitif et ergonomique adapté au terrain
+            </p>
+            <ul class="req-specs">
+              <li>
+                <span class="req-dot req-dot-ui"></span>Navigation en 3 clics
+                max
+              </li>
+              <li>
+                <span class="req-dot req-dot-ui"></span>Taille des boutons
+                adaptée
+              </li>
+              <li>
+                <span class="req-dot req-dot-ui"></span>Mode sombre / clair
+              </li>
+            </ul>
+          </div>
+          <div class="req-card req-sec">
+            <div class="req-card-top">
+              <div class="req-icon-box req-icon-sec">🔒</div>
+              <span class="req-badge req-badge-sec">Sécurité</span>
+            </div>
+            <h4 class="req-title">Sécurité</h4>
+            <p class="req-desc">Protection des données et accès contrôlé</p>
+            <ul class="req-specs">
+              <li>
+                <span class="req-dot req-dot-sec"></span>Authentification
+                obligatoire
+              </li>
+              <li>
+                <span class="req-dot req-dot-sec"></span>Isolation des données
+                par site
+              </li>
+              <li>
+                <span class="req-dot req-dot-sec"></span>Chiffrement des
+                échanges
+              </li>
+            </ul>
+          </div>
+          <div class="req-card req-trace">
+            <div class="req-card-top">
+              <div class="req-icon-box req-icon-trace">📋</div>
+              <span class="req-badge req-badge-trace">Audit</span>
+            </div>
+            <h4 class="req-title">Traçabilité</h4>
+            <p class="req-desc">Journalisation complète de chaque action</p>
+            <ul class="req-specs">
+              <li>
+                <span class="req-dot req-dot-trace"></span>Log utilisateur +
+                horodatage
+              </li>
+              <li>
+                <span class="req-dot req-dot-trace"></span>Historique des
+                mouvements
+              </li>
+              <li>
+                <span class="req-dot req-dot-trace"></span>Export des journaux
+              </li>
             </ul>
           </div>
         </div>
-        <div class="direct-comparison">
-          <h5>Où IT-Inventory se différencie :</h5>
-          <div class="comparison-points">
-            <div class="point-card advantage"><span class="point-icon">👥</span><h6>Multi-utilisateurs natif</h6><p>Gestion complète des utilisateurs avec authentification, profils et traçabilité des opérations par personne.</p></div>
-            <div class="point-card advantage"><span class="point-icon">☁️</span><h6>Synchronisation cloud temps réel</h6><p>Sauvegarde automatique sur base réseau entreprise, accès depuis plusieurs terminaux avec sécurité garantie.</p></div>
-            <div class="point-card advantage"><span class="point-icon">🏢</span><h6>Gestion multi-sites</h6><p>Parfait pour les entreprises avec plusieurs emplacements, transferts inter-sites facilités.</p></div>
-            <div class="point-card advantage"><span class="point-icon">📊</span><h6>Fonctionnalités professionnelles</h6><p>Dashboard avec KPIs, alertes automatiques, export CSV, historique complet des mouvements.</p></div>
-            <div class="point-card advantage"><span class="point-icon">🛠️</span><h6>Support et évolution</h6><p>Application maintenue et évoluée selon vos besoins, support technique direct, roadmap claire.</p></div>
-          </div>
-        </div>
-      </div>
 
-      <!-- 4. MATRICE DE POSITIONNEMENT -->
-      <h3 class="comparative-subtitle">Positionnement sur le Marché</h3>
-      <p class="matrix-intro">Visualisation du positionnement de chaque solution selon deux axes : <strong>Spécialisation IT</strong> (horizontal) et <strong>Sophistication des Fonctionnalités</strong> (vertical).</p>
-      <div class="matrix-visual">
-        <!-- 3 colonnes : une carte par solution -->
-        <div class="matrix-card matrix-card-stockpro">
-          <div class="matrix-card-glow"></div>
-          <div class="matrix-card-badge">Leader Spécialisé</div>
-          <div class="matrix-card-icon">📦</div>
-          <h4 class="matrix-card-name">IT-Inventory</h4>
-          <p class="matrix-card-pos">Spécialisé IT + Fonctionnalités Pro</p>
-          <div class="matrix-card-bars">
-            <div class="bar-row"><span class="bar-label">Spécialisation IT</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:95%"></div></div><span class="bar-val">95%</span></div>
-            <div class="bar-row"><span class="bar-label">Fonctionnalités</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:75%"></div></div><span class="bar-val">75%</span></div>
-            <div class="bar-row"><span class="bar-label">Simplicité</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:90%"></div></div><span class="bar-val">90%</span></div>
-            <div class="bar-row"><span class="bar-label">Coût</span><div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:85%"></div></div><span class="bar-val">Flexible</span></div>
+        <!-- Contraintes techniques -->
+        <div class="constraints-bar">
+          <div class="constraint-item">
+            <span class="constraint-icon">📱</span>
+            <span class="constraint-text">Fonctionnement en mobilité</span>
+          </div>
+          <div class="constraint-divider"></div>
+          <div class="constraint-item">
+            <span class="constraint-icon">📶</span>
+            <span class="constraint-text">Sync différée (mode hors-ligne)</span>
+          </div>
+          <div class="constraint-divider"></div>
+          <div class="constraint-item">
+            <span class="constraint-icon">🔋</span>
+            <span class="constraint-text">Optimisé batterie</span>
+          </div>
+          <div class="constraint-divider"></div>
+          <div class="constraint-item">
+            <span class="constraint-icon">🌐</span>
+            <span class="constraint-text">Android & iOS</span>
           </div>
         </div>
-        <div class="matrix-card matrix-card-timly">
-          <div class="matrix-card-badge">Leader Généraliste</div>
-          <div class="matrix-card-icon">⏱️</div>
-          <h4 class="matrix-card-name">Timly</h4>
-          <p class="matrix-card-pos">Généraliste + Très avancé</p>
-          <div class="matrix-card-bars">
-            <div class="bar-row"><span class="bar-label">Spécialisation IT</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:30%"></div></div><span class="bar-val">30%</span></div>
-            <div class="bar-row"><span class="bar-label">Fonctionnalités</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:95%"></div></div><span class="bar-val">95%</span></div>
-            <div class="bar-row"><span class="bar-label">Simplicité</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:40%"></div></div><span class="bar-val">40%</span></div>
-            <div class="bar-row"><span class="bar-label">Coût</span><div class="bar-track"><div class="bar-fill bar-fill-timly" style="width:30%"></div></div><span class="bar-val">185€/mois</span></div>
-          </div>
-        </div>
-        <div class="matrix-card matrix-card-simple">
-          <div class="matrix-card-badge">Niche Basique</div>
-          <div class="matrix-card-icon">📋</div>
-          <h4 class="matrix-card-name">Inventaire Simple</h4>
-          <p class="matrix-card-pos">Généraliste + Basique</p>
-          <div class="matrix-card-bars">
-            <div class="bar-row"><span class="bar-label">Spécialisation IT</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:10%"></div></div><span class="bar-val">10%</span></div>
-            <div class="bar-row"><span class="bar-label">Fonctionnalités</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:25%"></div></div><span class="bar-val">25%</span></div>
-            <div class="bar-row"><span class="bar-label">Simplicité</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:95%"></div></div><span class="bar-val">95%</span></div>
-            <div class="bar-row"><span class="bar-label">Coût</span><div class="bar-track"><div class="bar-fill bar-fill-simple" style="width:95%"></div></div><span class="bar-val">Gratuit</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="matrix-legend">
-        <div class="legend-section"><h5>📦 IT-Inventory - Quadrant "Leader Spécialisé"</h5><p>Positionnement optimal : Haute spécialisation IT avec fonctionnalités professionnelles. IT-Inventory offre le meilleur équilibre pour une entreprise IT recherchant une solution sur-mesure sans complexité excessive.</p></div>
-        <div class="legend-section"><h5>⏱️ Timly - Quadrant "Leader Généraliste"</h5><p>Solution complète mais non spécialisée. Excellente pour multi-secteurs mais avec complexité et coûts supérieurs pour un usage IT pur.</p></div>
-        <div class="legend-section"><h5>📋 Inventaire Simple - Quadrant "Niche Basique"</h5><p>Très accessible mais limité en fonctionnalités. Adapté aux très petites structures ou usages personnels, inadapté aux environnements professionnels.</p></div>
-      </div>
+      </section>
 
-      <!-- 5. SYNTHÈSE DES AVANTAGES -->
-      <h3 class="comparative-subtitle">Pourquoi Choisir IT-Inventory ?</h3>
-      <div class="advantages-hero">
-        <p class="hero-text">IT-Inventory combine le meilleur des deux mondes : <span class="highlight">la spécialisation IT</span> de solutions nichées avec <span class="highlight">les fonctionnalités professionnelles</span> des plateformes complètes, tout en évitant leur complexité et leurs coûts récurrents.</p>
-      </div>
-      <div class="advantages-grid">
-        <div class="advantage-card"><span class="card-number">01</span><span class="card-icon">🎯</span><h4>Spécialisation IT</h4><p>Conçu spécifiquement pour le stock informatique avec des workflows optimisés, des catégories adaptées et une ergonomie pensée pour les techniciens IT.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">Généraliste multi-secteurs</span></div></div>
-        <div class="advantage-card"><span class="card-number">02</span><span class="card-icon">💰</span><h4>Modèle Économique Flexible</h4><p>Pas d'abonnement mensuel récurrent. Solution sur-mesure avec licence adaptée à vos besoins réels sans frais cachés ni augmentations surprises.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">À partir de 185€/mois (2 220€/an)</span></div></div>
-        <div class="advantage-card"><span class="card-number">03</span><span class="card-icon">🔧</span><h4>Personnalisation Totale</h4><p>Application développée en interne, entièrement modifiable et extensible selon vos besoins spécifiques. Vous gardez le contrôle total.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">Personnalisation limitée (SaaS)</span></div></div>
-        <div class="advantage-card"><span class="card-number">04</span><span class="card-icon">👥</span><h4>Multi-Utilisateurs Natif</h4><p>Authentification sécurisée, gestion de profils, traçabilité complète des opérations par utilisateur dès la version de base.</p><div class="card-comparison"><span class="vs-label">vs Inventaire Simple :</span><span class="vs-text">Mono-utilisateur</span></div></div>
-        <div class="advantage-card"><span class="card-number">05</span><span class="card-icon">☁️</span><h4>Cloud Moderne & Sécurisé</h4><p>Synchronisation temps réel avec la base réseau entreprise, sauvegarde automatique, accès depuis plusieurs terminaux avec sécurité renforcée.</p><div class="card-comparison"><span class="vs-label">vs Inventaire Simple :</span><span class="vs-text">Export/import manuel uniquement</span></div></div>
-        <div class="advantage-card"><span class="card-number">06</span><span class="card-icon">🏢</span><h4>Multi-Sites Intégré</h4><p>Gestion native de plusieurs emplacements avec transferts inter-sites, vue consolidée et séparation des données par site.</p><div class="card-comparison"><span class="vs-label">vs Inventaire Simple :</span><span class="vs-text">Non disponible</span></div></div>
-        <div class="advantage-card"><span class="card-number">07</span><span class="card-icon">⚡</span><h4>Simplicité d'Utilisation</h4><p>Interface épurée et intuitive, focus sur l'essentiel, prise en main immédiate sans formation longue ni courbe d'apprentissage complexe.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">Interface chargée, formation nécessaire</span></div></div>
-        <div class="advantage-card"><span class="card-number">08</span><span class="card-icon">📱</span><h4>Mobile First</h4><p>Application native Android optimisée pour terminaux durcis (Zebra TC22), scan code-barres natif et externe, ergonomie terrain.</p><div class="card-comparison"><span class="vs-label">vs Timly :</span><span class="vs-text">Web-first, app mobile secondaire</span></div></div>
-        <div class="advantage-card"><span class="card-number">09</span><span class="card-icon">🛠️</span><h4>Support Direct & Évolutions</h4><p>Assistance technique directe, évolutions continues selon vos retours, roadmap claire et transparente adaptée à vos besoins métier.</p><div class="card-comparison"><span class="vs-label">vs Inventaire Simple :</span><span class="vs-text">Aucun support</span></div></div>
-      </div>
-      <div class="advantages-cta">
-        <div class="cta-content"><h4>IT-Inventory : La Solution Idéale pour la Gestion de Stock IT</h4><p>Une application moderne, spécialisée et professionnelle, sans les inconvénients des solutions généralistes ou basiques.</p><div class="cta-stats"><div class="stat"><span class="stat-value">100%</span><span class="stat-label">Spécialisé IT</span></div><div class="stat"><span class="stat-value">0€</span><span class="stat-label">Abonnement mensuel</span></div><div class="stat"><span class="stat-value">✓</span><span class="stat-label">Sur-mesure</span></div></div></div>
-      </div>
-    </section>
-
-    <!-- Section 4: Architecture Technique -->
-    <section class="content-section" id="technique">
-      <div class="section-badge"><span class="badge-icon">🔧</span><span class="badge-text">Stack</span></div>
-      <h2 class="section-title"><span class="title-number">04</span><span class="title-text">Architecture Technique</span></h2>
-      <div class="arch-stack">
-        <!-- Frontend -->
-        <div class="arch-card arch-frontend">
-          <div class="arch-card-accent"></div>
-          <div class="arch-card-header">
-            <div class="arch-icon-wrap arch-icon-frontend">📱</div>
-            <div>
-              <h4 class="arch-card-title">Frontend</h4>
-              <p class="arch-card-sub">Interface utilisateur mobile</p>
+      <!-- Section 6: Bénéfices -->
+      <section class="content-section" id="benefices">
+        <div class="section-badge">
+          <span class="badge-icon">📈</span><span class="badge-text">ROI</span>
+        </div>
+        <h2 class="section-title">
+          <span class="title-number">06</span
+          ><span class="title-text">Bénéfices attendus</span>
+        </h2>
+        <!-- Stats KPI -->
+        <div class="kpi-grid">
+          <div class="kpi-card kpi-green">
+            <div class="kpi-ring">
+              <svg viewBox="0 0 100 100">
+                <circle class="kpi-track" cx="50" cy="50" r="42"></circle>
+                <circle
+                  class="kpi-fill kpi-fill-green"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  stroke-dasharray="264"
+                  stroke-dashoffset="66"
+                ></circle>
+              </svg>
+              <span class="kpi-value" data-target="75">0</span
+              ><span class="kpi-percent">%</span>
             </div>
+            <h4 class="kpi-title">Réduction des erreurs</h4>
+            <p class="kpi-desc">
+              Suppression des erreurs de saisie manuelle grâce au scan
+              code-barres
+            </p>
           </div>
-          <div class="arch-tags">
-            <span class="arch-tag">Application Android</span>
-            <span class="arch-tag">Android 16</span>
-            <span class="arch-tag arch-tag-accent">React Native / TypeScript</span>
-            <span class="arch-tag">Smartphone Android / iOS</span>
-          </div>
-        </div>
-        <!-- Connecteur -->
-        <div class="arch-flow">
-          <div class="arch-flow-line"></div>
-          <span class="arch-flow-label">API REST / Sync</span>
-          <div class="arch-flow-line"></div>
-        </div>
-        <!-- Backend -->
-        <div class="arch-card arch-backend">
-          <div class="arch-card-accent"></div>
-          <div class="arch-card-header">
-            <div class="arch-icon-wrap arch-icon-backend">🏢</div>
-            <div>
-              <h4 class="arch-card-title">Backend</h4>
-              <p class="arch-card-sub">Serveur et logique métier</p>
+          <div class="kpi-card kpi-blue">
+            <div class="kpi-ring">
+              <svg viewBox="0 0 100 100">
+                <circle class="kpi-track" cx="50" cy="50" r="42"></circle>
+                <circle
+                  class="kpi-fill kpi-fill-blue"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  stroke-dasharray="264"
+                  stroke-dashoffset="13"
+                ></circle>
+              </svg>
+              <span class="kpi-value" data-target="95">0</span
+              ><span class="kpi-percent">%</span>
             </div>
+            <h4 class="kpi-title">Gain de temps</h4>
+            <p class="kpi-desc">
+              Réduction du temps de gestion manuelle du stock informatique
+            </p>
           </div>
-          <div class="arch-tags">
-            <span class="arch-tag">Base de données réseau entreprise</span>
-            <span class="arch-tag arch-tag-accent">PostgreSQL</span>
-            <span class="arch-tag">Authentification sécurisée</span>
-            <span class="arch-tag">Synchronisation temps réel</span>
-          </div>
-        </div>
-        <!-- Connecteur -->
-        <div class="arch-flow">
-          <div class="arch-flow-line"></div>
-          <span class="arch-flow-label">ORM / Requêtes SQL</span>
-          <div class="arch-flow-line"></div>
-        </div>
-        <!-- Data -->
-        <div class="arch-card arch-data">
-          <div class="arch-card-accent"></div>
-          <div class="arch-card-header">
-            <div class="arch-icon-wrap arch-icon-data">🗄️</div>
-            <div>
-              <h4 class="arch-card-title">Modèle de données</h4>
-              <p class="arch-card-sub">6 tables principales</p>
+          <div class="kpi-card kpi-purple">
+            <div class="kpi-ring">
+              <svg viewBox="0 0 100 100">
+                <circle class="kpi-track" cx="50" cy="50" r="42"></circle>
+                <circle
+                  class="kpi-fill kpi-fill-purple"
+                  cx="50"
+                  cy="50"
+                  r="42"
+                  stroke-dasharray="264"
+                  stroke-dashoffset="0"
+                ></circle>
+              </svg>
+              <span class="kpi-value" data-target="100">0</span
+              ><span class="kpi-percent">%</span>
             </div>
-          </div>
-          <div class="arch-db-grid">
-            <div class="arch-db-table"><span class="db-icon">👤</span><span class="db-name">Users</span></div>
-            <div class="arch-db-table"><span class="db-icon">🏢</span><span class="db-name">Sites</span></div>
-            <div class="arch-db-table"><span class="db-icon">📦</span><span class="db-name">Articles</span></div>
-            <div class="arch-db-table"><span class="db-icon">🔄</span><span class="db-name">Movements</span></div>
-            <div class="arch-db-table"><span class="db-icon">🏷️</span><span class="db-name">Categories</span></div>
-            <div class="arch-db-table"><span class="db-icon">📍</span><span class="db-name">Locations</span></div>
+            <h4 class="kpi-title">Traçabilité</h4>
+            <p class="kpi-desc">
+              Chaque mouvement lié à un utilisateur, une date et un site
+            </p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Section 5: Exigences & Sécurité -->
-    <section class="content-section" id="exigences">
-      <div class="section-badge"><span class="badge-icon">⚡</span><span class="badge-text">Performance</span></div>
-      <h2 class="section-title"><span class="title-number">05</span><span class="title-text">Exigences & Sécurité</span></h2>
-
-      <!-- Exigences techniques -->
-      <div class="req-grid">
-        <div class="req-card req-perf">
-          <div class="req-card-top">
-            <div class="req-icon-box req-icon-perf">⚡</div>
-            <span class="req-badge req-badge-perf">Critique</span>
+        <!-- Catégories de bénéfices -->
+        <div class="benefits-grid">
+          <div class="benefit-category benefit-ops">
+            <div class="benefit-cat-header">
+              <div class="benefit-cat-icon benefit-icon-ops">⚙️</div>
+              <h4>Opérationnels</h4>
+            </div>
+            <ul class="benefit-list">
+              <li>
+                <span class="benefit-check">✓</span>Réduction des erreurs de
+                saisie
+              </li>
+              <li>
+                <span class="benefit-check">✓</span>Gain de temps sur les
+                mouvements
+              </li>
+              <li>
+                <span class="benefit-check">✓</span>Simplification des
+                inventaires
+              </li>
+            </ul>
           </div>
-          <h4 class="req-title">Performance</h4>
-          <p class="req-desc">Temps de réponse inférieur à 2 secondes pour toute opération</p>
-          <ul class="req-specs">
-            <li><span class="req-dot req-dot-perf"></span>Chargement écran &lt; 1.5s</li>
-            <li><span class="req-dot req-dot-perf"></span>Scan instantané (&lt; 500ms)</li>
-            <li><span class="req-dot req-dot-perf"></span>Synchronisation en arrière-plan</li>
+          <div class="benefit-category benefit-org">
+            <div class="benefit-cat-header">
+              <div class="benefit-cat-icon benefit-icon-org">🏢</div>
+              <h4>Organisationnels</h4>
+            </div>
+            <ul class="benefit-list">
+              <li>
+                <span class="benefit-check">✓</span>Meilleure visibilité du
+                stock
+              </li>
+              <li>
+                <span class="benefit-check">✓</span>Anticipation des ruptures
+              </li>
+              <li>
+                <span class="benefit-check">✓</span>Centralisation multi-sites
+              </li>
+            </ul>
+          </div>
+          <div class="benefit-category benefit-fin">
+            <div class="benefit-cat-header">
+              <div class="benefit-cat-icon benefit-icon-fin">💰</div>
+              <h4>Financiers</h4>
+            </div>
+            <ul class="benefit-list">
+              <li>
+                <span class="benefit-check">✓</span>Réduction des pertes
+                matérielles
+              </li>
+              <li>
+                <span class="benefit-check">✓</span>Optimisation des achats
+              </li>
+              <li>
+                <span class="benefit-check">✓</span>Diminution des écarts
+                d'inventaire
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Évolutions -->
+      <section class="content-section" id="evolutions">
+        <div class="section-badge">
+          <span class="badge-icon">🚀</span
+          ><span class="badge-text">Roadmap</span>
+        </div>
+        <h2 class="section-title">
+          <span class="title-number">07</span
+          ><span class="title-text">Évolutions futures</span>
+        </h2>
+        <p class="roadmap-intro">
+          📅 Planning prévisionnel des évolutions de l'application IT-Inventory
+        </p>
+        <div class="roadmap-grid">
+          <div class="roadmap-card phase-current">
+            <div class="roadmap-card-header">
+              <span class="phase-badge">📱 Phase 1</span>
+              <span class="phase-status">✨ En cours</span>
+            </div>
+            <h4>Application mobile MVP</h4>
+            <p>
+              Application Android complète : gestion articles, scan, mouvements,
+              synchronisation avec la base de données entreprise
+            </p>
+            <ul class="roadmap-features">
+              <li>🔐 Authentification multi-utilisateurs</li>
+              <li>📷 Scan code-barres</li>
+              <li>📄 Export CSV</li>
+            </ul>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <span class="phase-badge">🌐 Phase 2</span>
+            </div>
+            <h4>Version Web</h4>
+            <p>Interface de gestion desktop complète</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <span class="phase-badge">📦 Phase 3</span>
+            </div>
+            <h4>Module Fournisseurs</h4>
+            <p>Gestion avancée des commandes</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <span class="phase-badge">📊 Phase 4</span>
+            </div>
+            <h4>Dashboard analytique</h4>
+            <p>BI et reporting avancé</p>
+          </div>
+          <div class="roadmap-card">
+            <div class="roadmap-card-header">
+              <span class="phase-badge">🔔 Phase 5</span>
+            </div>
+            <h4>Notifications push</h4>
+            <p>Alertes en temps réel</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="content-section conclusion">
+        <div class="section-badge">
+          <span class="badge-icon">✓</span
+          ><span class="badge-text">Conclusion</span>
+        </div>
+        <h2 class="section-title">
+          <span class="title-number">08</span
+          ><span class="title-text">Conclusion</span>
+        </h2>
+        <blockquote class="conclusion-quote">
+          IT-Inventory constitue une solution mobile professionnelle, moderne et
+          sécurisée, permettant une gestion optimisée du stock informatique.
+          Elle répond aux enjeux de traçabilité, de performance opérationnelle
+          et de sécurisation des données.
+        </blockquote>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img
+              src="assets/favicon.svg"
+              alt="IT-Inventory"
+              class="logo-img"
+            /><span class="logo-text">IT-Inventory</span>
+          </div>
+          <p class="footer-tagline">
+            Solution professionnelle de gestion de stock IT
+          </p>
+        </div>
+        <div class="footer-links">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#fonctionnel">Fonctionnel</a></li>
+            <li><a href="#technique">Technique</a></li>
+            <li><a href="#benefices">Bénéfices</a></li>
           </ul>
         </div>
-        <div class="req-card req-ui">
-          <div class="req-card-top">
-            <div class="req-icon-box req-icon-ui">🎨</div>
-            <span class="req-badge req-badge-ui">UX/UI</span>
-          </div>
-          <h4 class="req-title">Interface</h4>
-          <p class="req-desc">Design intuitif et ergonomique adapté au terrain</p>
-          <ul class="req-specs">
-            <li><span class="req-dot req-dot-ui"></span>Navigation en 3 clics max</li>
-            <li><span class="req-dot req-dot-ui"></span>Taille des boutons adaptée</li>
-            <li><span class="req-dot req-dot-ui"></span>Mode sombre / clair</li>
-          </ul>
-        </div>
-        <div class="req-card req-sec">
-          <div class="req-card-top">
-            <div class="req-icon-box req-icon-sec">🔒</div>
-            <span class="req-badge req-badge-sec">Sécurité</span>
-          </div>
-          <h4 class="req-title">Sécurité</h4>
-          <p class="req-desc">Protection des données et accès contrôlé</p>
-          <ul class="req-specs">
-            <li><span class="req-dot req-dot-sec"></span>Authentification obligatoire</li>
-            <li><span class="req-dot req-dot-sec"></span>Isolation des données par site</li>
-            <li><span class="req-dot req-dot-sec"></span>Chiffrement des échanges</li>
-          </ul>
-        </div>
-        <div class="req-card req-trace">
-          <div class="req-card-top">
-            <div class="req-icon-box req-icon-trace">📋</div>
-            <span class="req-badge req-badge-trace">Audit</span>
-          </div>
-          <h4 class="req-title">Traçabilité</h4>
-          <p class="req-desc">Journalisation complète de chaque action</p>
-          <ul class="req-specs">
-            <li><span class="req-dot req-dot-trace"></span>Log utilisateur + horodatage</li>
-            <li><span class="req-dot req-dot-trace"></span>Historique des mouvements</li>
-            <li><span class="req-dot req-dot-trace"></span>Export des journaux</li>
-          </ul>
+        <div class="footer-actions">
+          <h5>Document</h5>
+          <button type="button" class="btn-footer-primary" id="footerExportBtn">
+            <span>📄</span> Télécharger le CDC
+          </button>
+          <p class="footer-version">Version 1.0 • Février 2026</p>
         </div>
       </div>
+      <div class="footer-bottom">
+        <p>
+          © 2026 IT-Inventory. Cahier des charges technique. Créé par Florian
+          JOVE GARCIA.
+        </p>
+      </div>
+      <button
+        class="scroll-to-top"
+        id="scrollToTop"
+        aria-label="Retour en haut"
+      >
+        <span>↑</span>
+      </button>
+    </footer>
 
-      <!-- Contraintes techniques -->
-      <div class="constraints-bar">
-        <div class="constraint-item">
-          <span class="constraint-icon">📱</span>
-          <span class="constraint-text">Fonctionnement en mobilité</span>
+    <!-- Export Modal -->
+    <div class="export-modal" id="exportModal">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-content">
+        <h3>Exporter le cahier des charges</h3>
+        <div class="export-options">
+          <label class="option-card"
+            ><input type="checkbox" checked /><span
+              >Inclure les screenshots</span
+            ></label
+          >
+          <label class="option-card"
+            ><input type="checkbox" checked /><span
+              >Inclure le diagramme technique</span
+            ></label
+          >
         </div>
-        <div class="constraint-divider"></div>
-        <div class="constraint-item">
-          <span class="constraint-icon">📶</span>
-          <span class="constraint-text">Sync différée (mode hors-ligne)</span>
+        <div class="export-actions">
+          <button type="button" class="btn-secondary" id="modalCancelBtn">
+            Annuler
+          </button>
+          <button type="button" class="btn-primary" id="modalPrintBtn">
+            <span>📄</span> Générer PDF
+          </button>
         </div>
-        <div class="constraint-divider"></div>
-        <div class="constraint-item">
-          <span class="constraint-icon">🔋</span>
-          <span class="constraint-text">Optimisé batterie</span>
-        </div>
-        <div class="constraint-divider"></div>
-        <div class="constraint-item">
-          <span class="constraint-icon">🌐</span>
-          <span class="constraint-text">Android & iOS</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 6: Bénéfices -->
-    <section class="content-section" id="benefices">
-      <div class="section-badge"><span class="badge-icon">📈</span><span class="badge-text">ROI</span></div>
-      <h2 class="section-title"><span class="title-number">06</span><span class="title-text">Bénéfices attendus</span></h2>
-      <!-- Stats KPI -->
-      <div class="kpi-grid">
-        <div class="kpi-card kpi-green">
-          <div class="kpi-ring">
-            <svg viewBox="0 0 100 100">
-              <circle class="kpi-track" cx="50" cy="50" r="42"></circle>
-              <circle class="kpi-fill kpi-fill-green" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="66"></circle>
-            </svg>
-            <span class="kpi-value" data-target="75">0</span><span class="kpi-percent">%</span>
-          </div>
-          <h4 class="kpi-title">Réduction des erreurs</h4>
-          <p class="kpi-desc">Suppression des erreurs de saisie manuelle grâce au scan code-barres</p>
-        </div>
-        <div class="kpi-card kpi-blue">
-          <div class="kpi-ring">
-            <svg viewBox="0 0 100 100">
-              <circle class="kpi-track" cx="50" cy="50" r="42"></circle>
-              <circle class="kpi-fill kpi-fill-blue" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="13"></circle>
-            </svg>
-            <span class="kpi-value" data-target="95">0</span><span class="kpi-percent">%</span>
-          </div>
-          <h4 class="kpi-title">Gain de temps</h4>
-          <p class="kpi-desc">Réduction du temps de gestion manuelle du stock informatique</p>
-        </div>
-        <div class="kpi-card kpi-purple">
-          <div class="kpi-ring">
-            <svg viewBox="0 0 100 100">
-              <circle class="kpi-track" cx="50" cy="50" r="42"></circle>
-              <circle class="kpi-fill kpi-fill-purple" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="0"></circle>
-            </svg>
-            <span class="kpi-value" data-target="100">0</span><span class="kpi-percent">%</span>
-          </div>
-          <h4 class="kpi-title">Traçabilité</h4>
-          <p class="kpi-desc">Chaque mouvement lié à un utilisateur, une date et un site</p>
-        </div>
-      </div>
-
-      <!-- Catégories de bénéfices -->
-      <div class="benefits-grid">
-        <div class="benefit-category benefit-ops">
-          <div class="benefit-cat-header">
-            <div class="benefit-cat-icon benefit-icon-ops">⚙️</div>
-            <h4>Opérationnels</h4>
-          </div>
-          <ul class="benefit-list">
-            <li><span class="benefit-check">✓</span>Réduction des erreurs de saisie</li>
-            <li><span class="benefit-check">✓</span>Gain de temps sur les mouvements</li>
-            <li><span class="benefit-check">✓</span>Simplification des inventaires</li>
-          </ul>
-        </div>
-        <div class="benefit-category benefit-org">
-          <div class="benefit-cat-header">
-            <div class="benefit-cat-icon benefit-icon-org">🏢</div>
-            <h4>Organisationnels</h4>
-          </div>
-          <ul class="benefit-list">
-            <li><span class="benefit-check">✓</span>Meilleure visibilité du stock</li>
-            <li><span class="benefit-check">✓</span>Anticipation des ruptures</li>
-            <li><span class="benefit-check">✓</span>Centralisation multi-sites</li>
-          </ul>
-        </div>
-        <div class="benefit-category benefit-fin">
-          <div class="benefit-cat-header">
-            <div class="benefit-cat-icon benefit-icon-fin">💰</div>
-            <h4>Financiers</h4>
-          </div>
-          <ul class="benefit-list">
-            <li><span class="benefit-check">✓</span>Réduction des pertes matérielles</li>
-            <li><span class="benefit-check">✓</span>Optimisation des achats</li>
-            <li><span class="benefit-check">✓</span>Diminution des écarts d'inventaire</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 7: Évolutions -->
-    <section class="content-section" id="evolutions">
-      <div class="section-badge"><span class="badge-icon">🚀</span><span class="badge-text">Roadmap</span></div>
-      <h2 class="section-title"><span class="title-number">07</span><span class="title-text">Évolutions futures</span></h2>
-      <p class="roadmap-intro">📅 Planning prévisionnel des évolutions de l'application IT-Inventory</p>
-      <div class="roadmap-grid">
-        <div class="roadmap-card phase-current">
-          <div class="roadmap-card-header">
-            <span class="phase-badge">📱 Phase 1</span>
-            <span class="phase-status">✨ En cours</span>
-          </div>
-          <h4>Application mobile MVP</h4>
-          <p>Application Android complète : gestion articles, scan, mouvements, synchronisation avec la base de données entreprise</p>
-          <ul class="roadmap-features">
-            <li>🔐 Authentification multi-utilisateurs</li>
-            <li>📷 Scan code-barres</li>
-            <li>📄 Export CSV</li>
-          </ul>
-        </div>
-        <div class="roadmap-card">
-          <div class="roadmap-card-header">
-            <span class="phase-badge">🌐 Phase 2</span>
-          </div>
-          <h4>Version Web</h4>
-          <p>Interface de gestion desktop complète</p>
-        </div>
-        <div class="roadmap-card">
-          <div class="roadmap-card-header">
-            <span class="phase-badge">📦 Phase 3</span>
-          </div>
-          <h4>Module Fournisseurs</h4>
-          <p>Gestion avancée des commandes</p>
-        </div>
-        <div class="roadmap-card">
-          <div class="roadmap-card-header">
-            <span class="phase-badge">📊 Phase 4</span>
-          </div>
-          <h4>Dashboard analytique</h4>
-          <p>BI et reporting avancé</p>
-        </div>
-        <div class="roadmap-card">
-          <div class="roadmap-card-header">
-            <span class="phase-badge">🔔 Phase 5</span>
-          </div>
-          <h4>Notifications push</h4>
-          <p>Alertes en temps réel</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Conclusion -->
-    <section class="content-section conclusion">
-      <div class="section-badge"><span class="badge-icon">✓</span><span class="badge-text">Conclusion</span></div>
-      <h2 class="section-title"><span class="title-number">08</span><span class="title-text">Conclusion</span></h2>
-      <blockquote class="conclusion-quote">IT-Inventory constitue une solution mobile professionnelle, moderne et sécurisée, permettant une gestion optimisée du stock informatique. Elle répond aux enjeux de traçabilité, de performance opérationnelle et de sécurisation des données.</blockquote>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-brand">
-        <div class="footer-logo"><img src="assets/favicon.svg" alt="IT-Inventory" class="logo-img"><span class="logo-text">IT-Inventory</span></div>
-        <p class="footer-tagline">Solution professionnelle de gestion de stock IT</p>
-      </div>
-      <div class="footer-links">
-        <h5>Navigation</h5>
-        <ul>
-          <li><a href="#introduction">Introduction</a></li>
-          <li><a href="#fonctionnel">Fonctionnel</a></li>
-          <li><a href="#technique">Technique</a></li>
-          <li><a href="#benefices">Bénéfices</a></li>
-        </ul>
-      </div>
-      <div class="footer-actions">
-        <h5>Document</h5>
-        <button type="button" class="btn-footer-primary" id="footerExportBtn"><span>📄</span> Télécharger le CDC</button>
-        <p class="footer-version">Version 1.0 • Février 2026</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 IT-Inventory. Cahier des charges technique. Créé par Florian JOVE GARCIA.</p>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+      <div class="lightbox-content"><img src="" alt="" /></div>
+      <button
+        class="lightbox-close"
+        onclick="closeLightbox()"
+        aria-label="Fermer"
+      >
+        ×
+      </button>
     </div>
-    <button class="scroll-to-top" id="scrollToTop" aria-label="Retour en haut"><span>↑</span></button>
-  </footer>
 
-  <!-- Export Modal -->
-  <div class="export-modal" id="exportModal">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-content">
-      <h3>Exporter le cahier des charges</h3>
-      <div class="export-options">
-        <label class="option-card"><input type="checkbox" checked><span>Inclure les screenshots</span></label>
-        <label class="option-card"><input type="checkbox" checked><span>Inclure le diagramme technique</span></label>
-      </div>
-      <div class="export-actions">
-        <button type="button" class="btn-secondary" id="modalCancelBtn">Annuler</button>
-        <button type="button" class="btn-primary" id="modalPrintBtn"><span>📄</span> Générer PDF</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
-    <div class="lightbox-content"><img src="" alt=""></div>
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer">×</button>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="script.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
